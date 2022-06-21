@@ -1,6 +1,4 @@
 <template>
-  <div class="relative flex flex-col min-h-screen">
-    <main-header />
-    <router-view />
-  </div>
+  <main-header />
+  <router-view />
 </template>
