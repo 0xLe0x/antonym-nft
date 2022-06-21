@@ -45,7 +45,10 @@
         </li>
       </ul>
 
-      <a class="home__link flex items-center <sm:w-full justify-between ml-auto">
+      <router-link
+        class="home__link flex items-center <sm:w-full justify-between ml-auto"
+        :to="{ name: 'Info' }"
+      >
         Connect to Begin Redemption
         <img
           class="ml-2"
@@ -54,7 +57,7 @@
           height="18"
           alt="continue"
         >
-      </a>
+      </router-link>
     </footer>
   </main>
 </template>
