@@ -1,6 +1,6 @@
-import { createApp } from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import Toast from 'vue-toastification'
-import router from './router'
+import { routes } from './router'
 
 import 'virtual:windi.css'
 import 'vue-toastification/dist/index.css'
@@ -8,7 +8,10 @@ import '@mdi/font/css/materialdesignicons.min.css'
 
 import App from './App.vue'
 
-createApp(App)
-  .use(router)
-  .use(Toast)
-  .mount('#app')
+export const createApp = ViteSSG(
+  App,
+  { routes },
+  ({ app }) => {
+    app.use(Toast)
+  }
+)

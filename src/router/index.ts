@@ -8,10 +8,3 @@ generatedRoutes.push({
 })
 
 export const routes = setupLayouts(generatedRoutes)
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes
-})
-
-export default router
