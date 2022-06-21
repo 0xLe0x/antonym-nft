@@ -24,6 +24,7 @@ export default defineConfig({
     }
   },
   safelist: [
+    `w-[${info.length * 100}%]`,
     ...Array(info.length).fill(null).map((_, idx) => `w-${idx + 1}/${info.length}`),
     ...Array(info.length).fill(null).map((_, idx) => `-translate-x-${idx}/${info.length}`),
   ],
