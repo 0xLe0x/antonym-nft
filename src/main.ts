@@ -4,6 +4,7 @@ import router from './router'
 
 import 'virtual:windi.css'
 import 'vue-toastification/dist/index.css'
+import '@mdi/font/css/materialdesignicons.min.css'
 
 import App from './App.vue'
 
