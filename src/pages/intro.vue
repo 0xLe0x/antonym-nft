@@ -1,11 +1,11 @@
 <template>
   <main class="page flex items-stretch justify-center h-screen">
-    <info-carousel />
+    <intro-carousel />
   </main>
 </template>
 
 <route>
 {
-  "name": "Info"
+  "name": "Intro"
 }
 </route>

@@ -4,16 +4,16 @@
       <div
         class="flex items-stretch transform duration-300 max-h-full"
         :class="[
-          `w-[${info.length * 100}%]`,
+          `w-[${intro.length * 100}%]`,
           `-translate(${20 * (step - 1)}%)`,
-          `-translate-x-${(step - 1)}/${info.length}`
+          `-translate-x-${(step - 1)}/${intro.length}`
         ]"
       >
         <div
-          v-for="(slide, slideIdx) in info"
+          v-for="(slide, slideIdx) in intro"
           :key="slideIdx"
           class="flex flex-col items-center md:flex-row-reverse"
-          :class="`w-1/${info.length}`"
+          :class="`w-1/${intro.length}`"
         >
           <div class="md:w-3/5 font-bold md:text-3xl lg:text-4xl xl:text-5xl p-4 md:p-8">
             {{ slide.description }}
@@ -30,7 +30,7 @@
     </div>
     <div class="flex items-end justify-between mb-8">
       <span>
-        {{ step }}/{{ info.length }}
+        {{ step }}/{{ intro.length }}
       </span>
 
       <div
@@ -43,7 +43,7 @@
     <div class="bg-black/30 h-1 w-full">
       <div
         class="bg-black h-1 duration-300"
-        :class="`w-${step}/${info.length}`"
+        :class="`w-${step}/${intro.length}`"
       />
     </div>
   </div>
@@ -51,13 +51,16 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { info } from '@/consts'
+import { useRouter } from 'vue-router'
+import { intro } from '@/consts'
+
+const router = useRouter()
 
 const step = ref(1)
-const lastPage = computed(() => step.value === info.length)
+const lastPage = computed(() => step.value === intro.length)
 const gotoNextPage = () => {
-  if (step.value >= info.length) {
-    // Move to another page
+  if (step.value >= intro.length) {
+    router.push({ name: 'Catalogue' })
   } else {
     step.value++
   }

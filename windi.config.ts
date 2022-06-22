@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite-plugin-windicss'
-import { info } from './src/consts'
+import { intro } from './src/consts'
 
 export default defineConfig({
   attributify: {
@@ -22,9 +22,9 @@ export default defineConfig({
     }
   },
   safelist: [
-    `w-[${info.length * 100}%]`,
-    ...Array(info.length).fill(null).map((_, idx) => `w-${idx + 1}/${info.length}`),
-    ...Array(info.length).fill(null).map((_, idx) => `-translate-x-${idx}/${info.length}`),
+    `w-[${intro.length * 100}%]`,
+    ...Array(intro.length).fill(null).map((_, idx) => `w-${idx + 1}/${intro.length}`),
+    ...Array(intro.length).fill(null).map((_, idx) => `-translate-x-${idx}/${intro.length}`),
     'backdrop-blur-lg',
     'py-4'
   ],

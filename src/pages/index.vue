@@ -52,7 +52,7 @@
 
       <router-link
         class="home__link flex items-center <sm:w-full justify-between animate-pulse ml-auto"
-        :to="{ name: 'Info' }"
+        :to="{ name: 'Intro' }"
       >
         Connect to Begin Redemption
         <img
