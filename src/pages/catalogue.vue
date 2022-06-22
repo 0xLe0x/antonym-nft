@@ -166,3 +166,9 @@ const options = reactive({
   eligibleOnly: false
 })
 </script>
+
+<route>
+{
+  "name": "Catalogue"
+}
+</route>
