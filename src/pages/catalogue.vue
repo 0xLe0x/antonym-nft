@@ -83,7 +83,7 @@
       </div>
 
       <div class="flex flex-col lg:flex-row justify-between bg-darkgrey mt-12 md:mt-20 md:mx-4">
-        <div class="flex flex-col flex-grow text-white p-8 pb-0 md:px-12 lg:pl-20 lg:pr-0 lg:py-16">
+        <div class="flex flex-col flex-grow text-white p-8 pb-0 md:px-12 lg:pl-20 lg:pr-0 lg:py-12 xl:py-16">
           <h2 class="whitespace-nowrap text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-4">
             Antonym: Black
           </h2>
@@ -96,7 +96,7 @@
           </a>
         </div>
         <img
-          class="w-80 md:w-100 lg:w-130 xl:w-160 2xl:w-200 <lg:ml-auto sm:-mt-16 lg:-mt-24 object-contain object-bottom"
+          class="w-80 md:w-100 lg:w-120 xl:w-160 2xl:w-200 <lg:ml-auto sm:-mt-16 lg:-mt-24 object-contain object-bottom"
           src="/images/catalogue/black-adv.png"
           width="800"
           alt="Antonym Black"
