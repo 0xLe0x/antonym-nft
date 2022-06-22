@@ -39,7 +39,7 @@ export default defineConfig({
     'checkbox': 'h-4 w-4 appearance-none rounded-full border border-black/50 ring-inset ring-white checked:bg-black/70 checked:ring-2',
     'toggle-button': 'flex items-center justify-center px-3 md:w-30 h-6 border border-black/50 text-black/50 text-xs first:rounded-l last:rounded-r',
     'toggle-button--active': 'bg-black text-white',
-    'scroll-up': 'flex items-center justify-center w-20 h-20 md:w-30 md:h-30 border border-black rounded-full cursor-pointer',
+    'scroll-up': 'flex items-center justify-center w-20 h-20 md:w-24 md:h-24 lg:w-30 lg:h-30 border border-black rounded-full cursor-pointer',
     'hoverable': 'relative hover:before:content-[""] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-black/5 cursor-pointer',
 
     // Home Page

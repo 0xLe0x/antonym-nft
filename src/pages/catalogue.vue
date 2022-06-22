@@ -103,7 +103,7 @@
         >
       </div>
       <footer class="flex flex-col md:flex-row items-center justify-between py-8 md:py-12 xl:py-20 mt-8">
-        <div class="md:max-w-lg max-w-2xl">
+        <div class="md:max-w-xl lg:max-w-2xl">
           <h4 class="text-4xl font-tenebras uppercase">
             Antonym
           </h4>
