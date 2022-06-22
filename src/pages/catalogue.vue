@@ -35,7 +35,7 @@
         <div>
           <label
             class="<md:toggle-button flex items-center"
-            :class="{ 'toggle-button--active': options.eligibleOnly }"
+            :class="{ '<md:toggle-button--active': options.eligibleOnly }"
             for="eligible-only"
           >
             <input
@@ -44,7 +44,7 @@
               class="checkbox <md:hidden"
               type="checkbox"
             >
-            <span class="ml-1 text-xs text-black/50">
+            <span class="ml-1 text-xs md:text-black/50">
               Eligible Only
             </span>
           </label>
