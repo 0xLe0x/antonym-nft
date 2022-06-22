@@ -12,8 +12,6 @@ export default defineConfig({
         'home-mobile': 'url(/images/home-bg-mobile.jpg)',
       },
       colors: {
-        primary: '#EF03E7',
-        secondary: '#35126A',
         dark: '#0E0E0E',
         darkgrey: '#232323',
         light: '#D9D9D9'
@@ -27,6 +25,8 @@ export default defineConfig({
     `w-[${info.length * 100}%]`,
     ...Array(info.length).fill(null).map((_, idx) => `w-${idx + 1}/${info.length}`),
     ...Array(info.length).fill(null).map((_, idx) => `-translate-x-${idx}/${info.length}`),
+    'backdrop-blur-lg',
+    'py-4'
   ],
   shortcuts: {
     // Common
@@ -36,10 +36,18 @@ export default defineConfig({
     'button-connect': 'bg-dark text-white text-xs sm:text-sm md:text-md lg:text-lg 2xl:text-2xl uppercase px-8 py-2 md:px-10 md:py-3 2xl:px-12 2xl:py-4 rounded-full',
     'button-connect--small': 'border border-darkgrey px-3 py-2 text-xs rounded-full uppercase',
     'order-count': 'flex items-center justify-center w-8 h-8 bg-darkgrey text-white font-bold text-md rounded-full',
+    'checkbox': 'h-4 w-4 appearance-none rounded-full border border-black/50 ring-inset ring-white checked:bg-black/70 checked:ring-2',
+    'toggle-button': 'flex items-center justify-center px-3 md:w-30 h-6 border border-black/50 text-black/50 text-xs first:rounded-l last:rounded-r',
+    'toggle-button--active': 'bg-black text-white',
+    'scroll-up': 'flex items-center justify-center w-20 h-20 md:w-30 md:h-30 border border-black rounded-full cursor-pointer',
+    'hoverable': 'relative hover:before:content-[""] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-black/5 cursor-pointer',
 
     // Home Page
     'home': 'relative flex flex-col items-stretch bg-home <md:bg-home-mobile bg-white bg-bottom bg-no-repeat <md:bg-center <md:bg-cover',
     'home__title': 'my-auto mix-blend-exclusion text-white font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-center uppercase',
-    'home__link': 'text-sm md:text-md lg:text-lg 2xl:text-2xl uppercase'
+    'home__link': 'text-sm md:text-md lg:text-lg 2xl:text-2xl uppercase',
+
+    // Catalogue Page
+    'catalogue__description': '<md:hidden md:ml-20 lg:ml-40 xl:ml-60 md:mt-1 lg:mt-2 xl:mt-3 max-w-100 before:content-["‣"] before:-ml-[10px]'
   }
 })

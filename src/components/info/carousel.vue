@@ -4,7 +4,8 @@
       <div
         class="flex items-stretch transform duration-300 max-h-full"
         :class="[
-          `w-[${info.length * 100}%] -translate(${20 * (step - 1)}%)`,
+          `w-[${info.length * 100}%]',
+          '-translate(${20 * (step - 1)}%)`,
           `-translate-x-${(step - 1)}/${info.length}`
         ]"
       >
