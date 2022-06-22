@@ -41,12 +41,17 @@
           :key="link.title"
           class="home__link mr-9"
         >
-          {{ link.title }}
+          <a
+            :href="link.link"
+            target="_blank"
+          >
+            {{ link.title }}
+          </a>
         </li>
       </ul>
 
       <router-link
-        class="home__link flex items-center <sm:w-full justify-between ml-auto"
+        class="home__link flex items-center <sm:w-full justify-between animate-pulse ml-auto"
         :to="{ name: 'Info' }"
       >
         Connect to Begin Redemption
@@ -67,16 +72,20 @@ import { ref } from 'vue'
 
 const socialLinks = [
   {
-    title: 'Instagram'
+    title: 'Instagram',
+    link: 'https://www.instagram.com/antonym.eth/'
   },
   {
-    title: 'Twitter'
+    title: 'Twitter',
+    link: 'https://twitter.com/AntonymNFT'
   },
   {
-    title: 'Opensea'
+    title: 'Opensea',
+    link: 'https://opensea.io/collection/antonymgenesis'
   },
   {
-    title: 'Lookshare'
+    title: 'Lookshare',
+    link: 'https://looksrare.org/collections/0x7e3Ef31186D1BEc0D3f35aD701D065743B84C790'
   }
 ]
 
