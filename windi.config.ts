@@ -12,9 +12,11 @@ export default defineConfig({
         'home-mobile': 'url(/images/home-bg-mobile.jpg)',
       },
       colors: {
+        error: '#D81515',
         dark: '#0E0E0E',
         darkgrey: '#232323',
-        light: '#D9D9D9'
+        light: '#D9D9D9',
+        lightgrey: '#F2F2F2'
       },
       fontFamily: {
         tenebras: ['tenebras']
@@ -27,7 +29,10 @@ export default defineConfig({
     ...Array(intro.length).fill(null).map((_, idx) => `w-${idx + 1}/${intro.length}`),
     ...Array(intro.length).fill(null).map((_, idx) => `-translate-x-${idx}/${intro.length}`),
     'backdrop-blur-lg',
-    'py-4'
+    'py-4',
+    'toggle-button--disabled',
+    'cursor-not-allowed',
+    'border--error'
   ],
   shortcuts: {
     // Common
@@ -40,6 +45,7 @@ export default defineConfig({
     'checkbox': 'h-4 w-4 appearance-none rounded-full border border-black/50 ring-inset ring-white checked:bg-black/70 checked:ring-2',
     'toggle-button': 'flex items-center justify-center border border-black/50 text-black/50 text-xs rounded-l rounded-r',
     'toggle-button--active': 'bg-black text-white',
+    'toggle-button--disabled': 'opacity-50',
     'scroll-up': 'flex items-center justify-center w-20 h-20 md:w-24 md:h-24 lg:w-30 lg:h-30 border border-black rounded-full cursor-pointer',
     'hoverable': 'relative hover:before:content-[""] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-black/5 cursor-pointer',
 
