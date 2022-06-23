@@ -1,0 +1,493 @@
+[
+  {
+    "id": 245517713540,
+    "name": "United States",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/245517713540",
+    "countries": [
+      {
+        "id": 420411998340,
+        "name": "United States",
+        "tax": 0,
+        "code": "US",
+        "tax_name": "Federal Tax",
+        "shipping_zone_id": 245517713540
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416607731844,
+        "name": "custom",
+        "price": "38.46",
+        "shipping_zone_id": 245517713540,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416607764612,
+        "name": "custom",
+        "price": "99.55",
+        "shipping_zone_id": 245517713540,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 257571061892,
+    "name": "Germany",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/257571061892",
+    "countries": [
+      {
+        "id": 423357939844,
+        "name": "Germany",
+        "tax": 0,
+        "code": "DE",
+        "tax_name": "DE MwSt",
+        "shipping_zone_id": 257571061892,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416607666308,
+        "name": "custom",
+        "price": "30.82",
+        "shipping_zone_id": 257571061892,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416607699076,
+        "name": "custom",
+        "price": "65.87",
+        "shipping_zone_id": 257571061892,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 257571160196,
+    "name": "Czechia",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/257571160196",
+    "countries": [
+      {
+        "id": 423358038148,
+        "name": "Czech Republic",
+        "tax": 0,
+        "code": "CZ",
+        "tax_name": "CZ VAT",
+        "shipping_zone_id": 257571160196,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416061653124,
+        "name": "Standar",
+        "price": "35.91",
+        "shipping_zone_id": 257571160196,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416061685892,
+        "name": "Standar",
+        "price": "70.96",
+        "shipping_zone_id": 257571160196,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 257576173700,
+    "name": "Poland",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/257576173700",
+    "countries": [
+      {
+        "id": 423359217796,
+        "name": "Poland",
+        "tax": 0,
+        "code": "PL",
+        "tax_name": "PL VAT",
+        "shipping_zone_id": 257576173700,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416066896004,
+        "name": "Standar",
+        "price": "35.91",
+        "shipping_zone_id": 257576173700,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416066928772,
+        "name": "Standar",
+        "price": "70.96",
+        "shipping_zone_id": 257576173700,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258107900036,
+    "name": "Netherlands",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258107900036",
+    "countries": [
+      {
+        "id": 423429537924,
+        "name": "Netherlands",
+        "tax": 0,
+        "code": "NL",
+        "tax_name": "NL btw",
+        "shipping_zone_id": 258107900036,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416624836740,
+        "name": "custom",
+        "price": "34.56",
+        "shipping_zone_id": 258107900036,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416624869508,
+        "name": "custom",
+        "price": "69.61",
+        "shipping_zone_id": 258107900036,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258107932804,
+    "name": "Luxembourg",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258107932804",
+    "countries": [
+      {
+        "id": 423429570692,
+        "name": "Luxembourg",
+        "tax": 0,
+        "code": "LU",
+        "tax_name": "LU VAT",
+        "shipping_zone_id": 258107932804,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416625033348,
+        "name": "custom",
+        "price": "36.81",
+        "shipping_zone_id": 258107932804,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416625066116,
+        "name": "custom",
+        "price": "71.86",
+        "shipping_zone_id": 258107932804,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258107965572,
+    "name": "Lithuania",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258107965572",
+    "countries": [
+      {
+        "id": 423429603460,
+        "name": "Lithuania",
+        "tax": 0,
+        "code": "LT",
+        "tax_name": "LT VAT",
+        "shipping_zone_id": 258107965572,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416624967812,
+        "name": "custom",
+        "price": "34.56",
+        "shipping_zone_id": 258107965572,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416625000580,
+        "name": "custom",
+        "price": "69.61",
+        "shipping_zone_id": 258107965572,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258108063876,
+    "name": "Italy",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258108063876",
+    "countries": [
+      {
+        "id": 423429636228,
+        "name": "Italy",
+        "tax": 0,
+        "code": "IT",
+        "tax_name": "IT IVA",
+        "shipping_zone_id": 258108063876
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416624902276,
+        "name": "custom",
+        "price": "38.75",
+        "shipping_zone_id": 258108063876,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416624935044,
+        "name": "custom",
+        "price": "73.80",
+        "shipping_zone_id": 258108063876,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258108162180,
+    "name": "France",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258108162180",
+    "countries": [
+      {
+        "id": 423429668996,
+        "name": "France",
+        "tax": 0,
+        "code": "FR",
+        "tax_name": "FR TVA",
+        "shipping_zone_id": 258108162180,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416619856004,
+        "name": "custom",
+        "price": "36.81",
+        "shipping_zone_id": 258108162180,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416619888772,
+        "name": "custom",
+        "price": "71.86",
+        "shipping_zone_id": 258108162180,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258108260484,
+    "name": "Spain",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258108260484",
+    "countries": [
+      {
+        "id": 423429701764,
+        "name": "Spain",
+        "tax": 0,
+        "code": "ES",
+        "tax_name": "ES IVA",
+        "shipping_zone_id": 258108260484
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416625623172,
+        "name": "custom",
+        "price": "38.75",
+        "shipping_zone_id": 258108260484,
+        "weight_low": null,
+        "weight_high": 21.5
+      },
+      {
+        "id": 416625655940,
+        "name": "custom",
+        "price": "73.80",
+        "shipping_zone_id": 258108260484,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258108326020,
+    "name": "Denmark",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258108326020",
+    "countries": [
+      {
+        "id": 423429734532,
+        "name": "Denmark",
+        "tax": 0,
+        "code": "DK",
+        "tax_name": "DK Moms",
+        "shipping_zone_id": 258108326020,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416625426564,
+        "name": "custom",
+        "price": "36.81",
+        "shipping_zone_id": 258108326020,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416625459332,
+        "name": "custom",
+        "price": "71.86",
+        "shipping_zone_id": 258108326020,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258108391556,
+    "name": "Belgium",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258108391556",
+    "countries": [
+      {
+        "id": 423429767300,
+        "name": "Belgium",
+        "tax": 0,
+        "code": "BE",
+        "tax_name": "BE TVA",
+        "shipping_zone_id": 258108391556,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416620019844,
+        "name": "custom",
+        "price": "34.56",
+        "shipping_zone_id": 258108391556,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416620052612,
+        "name": "custom",
+        "price": "69.61",
+        "shipping_zone_id": 258108391556,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  },
+  {
+    "id": 258108424324,
+    "name": "Austria",
+    "profile_id": "gid://shopify/DeliveryProfile/80771547268",
+    "location_group_id": "gid://shopify/DeliveryLocationGroup/81262444676",
+    "admin_graphql_api_id": "gid://shopify/DeliveryZone/258108424324",
+    "countries": [
+      {
+        "id": 423429800068,
+        "name": "Austria",
+        "tax": 0,
+        "code": "AT",
+        "tax_name": "AT VAT",
+        "shipping_zone_id": 258108424324,
+        "provinces": []
+      }
+    ],
+    "weight_based_shipping_rates": [
+      {
+        "id": 416620085380,
+        "name": "custom",
+        "price": "34.56",
+        "shipping_zone_id": 258108424324,
+        "weight_low": null,
+        "weight_high": 4.5
+      },
+      {
+        "id": 416620118148,
+        "name": "custom",
+        "price": "69.61",
+        "shipping_zone_id": 258108424324,
+        "weight_low": 5,
+        "weight_high": 21.5
+      }
+    ],
+    "price_based_shipping_rates": [],
+    "carrier_shipping_rate_providers": []
+  }
+]
