@@ -6,14 +6,20 @@
       </h4>
       <ul class="flex font-light text-xs uppercase mt-6">
         <li class="mr-2 sm:mr-5">
-          <a class="hover:underline">
+          <router-link
+            class="hover:underline"
+            :to="{ name: 'TermsOfUse' }"
+          >
             Terms of Use
-          </a>
+          </router-link>
         </li>
         <li class="mr-2 sm:mr-5">
-          <a class="hover:underline">
+          <router-link
+            class="hover:underline"
+            :to="{ name: 'PrivacyPolicy' }"
+          >
             Privacy Policy
-          </a>
+          </router-link>
         </li>
         <li class="mr-2 sm:mr-5">
           <a class="hover:underline">
