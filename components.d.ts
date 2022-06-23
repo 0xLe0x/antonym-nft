@@ -5,6 +5,8 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BaseField: typeof import('./src/components/base/field.vue')['default']
+    BaseInput: typeof import('./src/components/base/input.vue')['default']
     IntroCarousel: typeof import('./src/components/intro/carousel.vue')['default']
     MainConnect: typeof import('./src/components/main/connect.vue')['default']
     MainFooter: typeof import('./src/components/main/footer.vue')['default']
