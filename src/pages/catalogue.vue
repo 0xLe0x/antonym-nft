@@ -58,7 +58,7 @@
         >
           <img
             class="w-full mb-3"
-            :src="antonym.image"
+            :src="antonym.thumbnail"
             width="600"
             height="600"
             :alt="antonym.capsuleTrait"
