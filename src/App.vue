@@ -8,5 +8,6 @@ html, body {
   overflow: hidden auto;
   font-weight: 500;
   font-family: 'Helvetica Now Display';
+  scroll-behavior: smooth;
 }
 </style>

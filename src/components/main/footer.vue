@@ -46,7 +46,10 @@
         Antonym LLC.
       </p>
     </div>
-    <a class="scroll-up <md:mt-8">
+    <a
+      class="scroll-up <md:mt-8"
+      @click="scrollTop"
+    >
       <img
         class="w-6 md:w-9"
         src="/images/arrow-up.svg"
@@ -57,3 +60,7 @@
     </a>
   </footer>
 </template>
+
+<script setup lang="ts">
+const scrollTop = () => window.scroll(0, 0)
+</script>
