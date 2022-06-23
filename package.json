@@ -15,6 +15,7 @@
     "@vueuse/head": "^0.7.6",
     "vue": "^3.2.25",
     "vue-router": "^4.0.16",
+    "vue-tippy": "^6.0.0-alpha.58",
     "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
