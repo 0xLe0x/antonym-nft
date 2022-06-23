@@ -3,14 +3,15 @@
     class="redeem page py-24 sm:py-28 md:py-32 xl:py-48"
     :class="{ 'theme--dark': route.params.id === 'black' }"
   >
+    <router-link
+      class="inline-flex items-center opacity-40 mr-auto"
+      :to="{ name: 'Catalogue' }"
+    >
+      <i class="text-2xl mdi mdi-arrow-left-thin mr-2" />
+      Keep Browsing
+    </router-link>
+
     <div class="container mx-auto">
-      <router-link
-        class="inline-flex items-center opacity-40 mr-auto"
-        :to="{ name: 'Catalogue' }"
-      >
-        <i class="text-2xl mdi mdi-arrow-left-thin mr-2" />
-        Keep Browsing
-      </router-link>
       <div class="flex flex-col md:flex-row md:items-start">
         <img
           class="w-4/5 md:w-80 lg:w-100 xl:w-140 2xl:w-200 <md:mx-auto md:mr-8 <md:mt-6 object-cover flex-grow-0 flex-shrink-0"

@@ -1,5 +1,15 @@
 <template>
-  <main class="redeem page py-24 sm:py-28 md:py-32 xl:py-48">
+  <main class="page py-24 sm:py-28 md:py-32 xl:py-48">
+    <router-link
+      class="inline-flex items-center opacity-40 mr-auto"
+      :to="{ name: 'Catalogue' }"
+    >
+      <i class="text-2xl mdi mdi-arrow-left-thin mr-2" />
+      Keep Browsing
+    </router-link>
+    <h1 class="page-title">
+      Shipping Information
+    </h1>
     <div class="container mx-auto">
       <div class="flex flex-col lg:flex-row lg:items-start">
         <div>
