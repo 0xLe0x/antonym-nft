@@ -22,6 +22,7 @@ export default defineConfig({
     }
   },
   safelist: [
+    'theme--dark',
     `w-[${intro.length * 100}%]`,
     ...Array(intro.length).fill(null).map((_, idx) => `w-${idx + 1}/${intro.length}`),
     ...Array(intro.length).fill(null).map((_, idx) => `-translate-x-${idx}/${intro.length}`),
@@ -37,10 +38,19 @@ export default defineConfig({
     'button-connect--small': 'border border-darkgrey px-3 py-2 text-xs rounded-full uppercase',
     'order-count': 'flex items-center justify-center w-8 h-8 bg-darkgrey text-white font-bold text-md rounded-full',
     'checkbox': 'h-4 w-4 appearance-none rounded-full border border-black/50 ring-inset ring-white checked:bg-black/70 checked:ring-2',
-    'toggle-button': 'flex items-center justify-center px-3 md:w-30 h-6 border border-black/50 text-black/50 text-xs first:rounded-l last:rounded-r',
+    'toggle-button': 'flex items-center justify-center border border-black/50 text-black/50 text-xs rounded-l rounded-r',
     'toggle-button--active': 'bg-black text-white',
     'scroll-up': 'flex items-center justify-center w-20 h-20 md:w-24 md:h-24 lg:w-30 lg:h-30 border border-black rounded-full cursor-pointer',
     'hoverable': 'relative hover:before:content-[""] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-black/5 cursor-pointer',
+
+    'theme--dark': {
+      '@apply': 'bg-darkgrey text-white duration-300',
+      '.button-connect': { '@apply': 'bg-white text-black' },
+      '.button-connect--small': { '@apply': 'border-white' },
+      '.order-count': { '@apply': 'bg-white text-black' },
+      '.toggle-button': { '@apply': 'text-white/40 border-white/40' },
+      '.toggle-button--active': { '@apply': 'bg-white text-black' }
+    },
 
     // Home Page
     'home': 'relative flex flex-col items-stretch bg-home <md:bg-home-mobile bg-white bg-bottom bg-no-repeat <md:bg-center <md:bg-cover',
@@ -48,6 +58,10 @@ export default defineConfig({
     'home__link': 'text-sm md:text-md lg:text-lg 2xl:text-2xl uppercase',
 
     // Catalogue Page
-    'catalogue__description': '<md:hidden md:ml-20 lg:ml-40 xl:ml-60 md:mt-1 lg:mt-2 xl:mt-3 max-w-100 before:content-["‣"] before:-ml-[10px]'
+    'catalogue__description': '<md:hidden md:ml-20 lg:ml-40 xl:ml-60 md:mt-1 lg:mt-2 xl:mt-3 max-w-100 before:content-["‣"] before:-ml-[10px]',
+
+    // Redeem Page
+    'redeem__back': 'text-black/40',
+    'redeem__trait': 'text-black/60'
   }
 })

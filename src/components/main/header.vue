@@ -3,7 +3,9 @@
     class="header backdrop-filter duration-300"
     :class="{
       'backdrop-blur-lg py-4': y,
-      'bg-white/50': y
+      'bg-white/50': y && !isBlack,
+      'bg-darkgrey/50': y && isBlack,
+      'theme--dark': isBlack
     }"
   >
     <router-link
@@ -17,7 +19,11 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { useScroll } from '@vueuse/core'
 
+const route = useRoute()
 const { y } = useScroll(document)
+const isBlack = computed(() => route.name === 'Redeem' && route.params.id === 'black')
 </script>

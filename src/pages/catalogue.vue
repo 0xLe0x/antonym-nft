@@ -18,56 +18,55 @@
       <div class="flex items-center justify-between max-w-sm md:max-w-md mb-6">
         <div class="flex items-center">
           <button
-            class="toggle-button"
+            class="toggle-button px-3 md:w-30 h-6 rounded-r-none"
             :class="{ 'toggle-button--active': options.wallet }"
             @click="options.wallet = true"
           >
             View Wallet
           </button>
           <button
-            class="toggle-button"
+            class="toggle-button px-3 md:w-30 h-6 rounded-l-none"
             :class="{ 'toggle-button--active': !options.wallet }"
             @click="options.wallet = false"
           >
             View Catalogue
           </button>
         </div>
-        <div>
-          <label
-            class="<md:toggle-button flex items-center"
-            :class="{ '<md:toggle-button--active': options.eligibleOnly }"
-            for="eligible-only"
+        <label
+          class="<md:toggle-button px-3 md:w-30 h-6 flex items-center"
+          :class="{ '<md:toggle-button--active': options.eligibleOnly }"
+          for="eligible-only"
+        >
+          <input
+            id="eligible-only"
+            v-model="options.eligibleOnly"
+            class="checkbox <md:hidden"
+            type="checkbox"
           >
-            <input
-              id="eligible-only"
-              v-model="options.eligibleOnly"
-              class="checkbox <md:hidden"
-              type="checkbox"
-            >
-            <span class="ml-1 text-xs md:text-black/50">
-              Eligible Only
-            </span>
-          </label>
-        </div>
+          <span class="ml-1 text-xs md:text-black/50">
+            Eligible Only
+          </span>
+        </label>
       </div>
 
       <div class="flex flex-wrap -mx-3">
-        <div
-          v-for="antonym in antonyms"
-          :key="antonym.capsule_number"
+        <router-link
+          v-for="antonym in antonymCatalogue"
+          :key="antonym.capsuleNumber"
           class="w-full sm:w-1/2 lg:w-1/3 hoverable p-3"
+          :to="{ name: 'Redeem', params: { id: antonym.capsuleTrait } }"
         >
           <img
             class="w-full mb-3"
-            :src="antonym.thumbnail"
+            :src="antonym.image"
             width="600"
             height="600"
-            :alt="antonym.capsule_trait"
+            :alt="antonym.capsuleTrait"
           >
           <div class="flex justify-between text-xs">
             <div class="uppercase">
-              {{ antonym.capsule_trait }}<br>
-              {{ antonym.capsule_number }}
+              {{ antonym.capsuleTrait }}<br>
+              {{ antonym.capsuleNumber }}
             </div>
             <div v-if="false">
               REDEEM ↗
@@ -79,7 +78,7 @@
               INELIGIBLE
             </div>
           </div>
-        </div>
+        </router-link>
       </div>
 
       <div class="flex flex-col lg:flex-row justify-between bg-darkgrey mt-12 md:mt-20 md:mx-4">
@@ -97,13 +96,13 @@
         </div>
         <img
           class="w-80 md:w-100 lg:w-120 xl:w-160 2xl:w-200 <lg:ml-auto sm:-mt-16 lg:-mt-24 object-contain object-bottom"
-          src="/images/catalogue/black-adv.png"
+          src="/images/catalogue/black-small.png"
           width="800"
           alt="Antonym Black"
         >
       </div>
 
-      <main-footer class="mt-8" />
+      <main-footer class="mt-20 md:mt-auto" />
     </div>
   </main>
 </template>
@@ -116,6 +115,8 @@ const options = reactive({
   wallet: false,
   eligibleOnly: false
 })
+
+const antonymCatalogue = antonyms.filter((antonym) => !antonym?.limited)
 </script>
 
 <route>
