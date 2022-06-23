@@ -7,7 +7,7 @@
       <ul class="flex font-light text-xs uppercase mt-6">
         <li class="mr-2 sm:mr-5">
           <a class="hover:underline">
-            Terms of Service
+            Terms of Use
           </a>
         </li>
         <li class="mr-2 sm:mr-5">

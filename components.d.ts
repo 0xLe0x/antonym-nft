@@ -5,9 +5,10 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    BaseField: typeof import('./src/components/base/field.vue')['default']
     BaseInput: typeof import('./src/components/base/input.vue')['default']
     IntroCarousel: typeof import('./src/components/intro/carousel.vue')['default']
+    LegalContents: typeof import('./src/components/legal/contents.vue')['default']
+    LegalItem: typeof import('./src/components/legal/item.vue')['default']
     MainConnect: typeof import('./src/components/main/connect.vue')['default']
     MainFooter: typeof import('./src/components/main/footer.vue')['default']
     MainHeader: typeof import('./src/components/main/header.vue')['default']
