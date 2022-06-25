@@ -52,21 +52,21 @@
       <div class="flex flex-wrap -mx-3">
         <router-link
           v-for="antonym in antonymCatalogue"
-          :key="antonym.capsuleNumber"
+          :key="antonym.capsule_number"
           class="w-full sm:w-1/2 lg:w-1/3 hoverable p-3"
-          :to="{ name: 'Redeem', params: { id: antonym.capsuleTrait } }"
+          :to="{ name: 'Redeem', params: { id: antonym.capsule_trait } }"
         >
           <img
             class="w-full mb-3"
             :src="antonym.thumbnail"
             width="600"
             height="600"
-            :alt="antonym.capsuleTrait"
+            :alt="antonym.capsule_trait"
           >
           <div class="flex justify-between text-xs">
             <div class="uppercase">
-              {{ antonym.capsuleTrait }}<br>
-              {{ antonym.capsuleNumber }}
+              {{ antonym.capsule_trait }}<br>
+              {{ antonym.capsule_number }}
             </div>
             <div v-if="false">
               REDEEM ↗

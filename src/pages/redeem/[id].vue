@@ -18,14 +18,14 @@
           :src="antonym?.image"
           width="800"
           height="800"
-          :alt="antonym?.capsuleTrait"
+          :alt="antonym?.capsule_trait"
         >
         <div>
           <h1 class="text-2xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl uppercase">
             {{ antonym?.name }}
           </h1>
           <div class="text-xs uppercase opacity-60">
-            /{{ antonym?.capsuleTrait }}
+            /{{ antonym?.capsule_trait }}
           </div>
           <p
             v-if="antonym?.limited"
@@ -40,10 +40,10 @@
             class="mt-5"
           >
             First-edition Antonym physical art toy.
-            <span class="uppercase">“{{ antonym?.capsuleTrait }}”</span> is the final
+            <span class="uppercase">“{{ antonym?.capsule_trait }}”</span> is the final
             capsule in a series of 30 Antonym physical editions, available for
             redemption to select holders of our genesis collection.
-            <span class="uppercase">“{{ antonym?.capsuleTrait }}”</span> features a
+            <span class="uppercase">“{{ antonym?.capsule_trait }}”</span> features a
             {{ antonym?.type }} finish.
           </p>
 
@@ -123,7 +123,7 @@ const route = useRoute()
 const router = useRouter()
 
 const antonym = computed(() => antonyms.find(
-  ({ capsuleTrait }) => capsuleTrait === route.params.id
+  ({ capsule_trait }) => capsule_trait === route.params.id
 ))
 
 const selectedSize = ref(12)
