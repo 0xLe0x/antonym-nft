@@ -145,8 +145,6 @@ const setContract = async () => {
     smartContract.abi,
     provider.value?.getSigner()
   )
-
-  getAccountNFT()
 }
 
 const setAccount = async (newAccount: string) => {
