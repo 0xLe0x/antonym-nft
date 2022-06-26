@@ -17,3 +17,4 @@ declare module 'virtual:generated-layouts' {
 }
 
 declare module '@ehutch79/vite-eslint'
+declare module '@walletconnect/web3-provider/*'

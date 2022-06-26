@@ -49,37 +49,14 @@
         </label>
       </div>
 
-      <div class="flex flex-wrap -mx-3">
-        <router-link
-          v-for="antonym in antonymCatalogue"
-          :key="antonym.capsuleNumber"
-          class="w-full sm:w-1/2 lg:w-1/3 hoverable p-3"
-          :to="{ name: 'Redeem', params: { id: antonym.capsuleTrait } }"
-        >
-          <img
-            class="w-full mb-3"
-            :src="antonym.thumbnail"
-            width="600"
-            height="600"
-            :alt="antonym.capsuleTrait"
-          >
-          <div class="flex justify-between text-xs">
-            <div class="uppercase">
-              {{ antonym.capsuleTrait }}<br>
-              {{ antonym.capsuleNumber }}
-            </div>
-            <div v-if="false">
-              REDEEM ↗
-            </div>
-            <div
-              v-else
-              class="text-black/30"
-            >
-              INELIGIBLE
-            </div>
-          </div>
-        </router-link>
-      </div>
+      <catalogue-list-view
+        v-if="options.wallet"
+        :eligible-only="options.eligibleOnly"
+      />
+      <catalogue-list-view
+        v-else
+        :eligible-only="options.eligibleOnly"
+      />
 
       <div class="flex flex-col lg:flex-row justify-between bg-darkgrey mt-12 md:mt-20 md:mx-4">
         <div class="flex flex-col flex-grow text-white p-8 pb-0 md:px-12 lg:pl-20 lg:pr-0 lg:py-12 xl:py-16">
@@ -109,14 +86,11 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { antonyms } from '@/consts'
 
 const options = reactive({
   wallet: false,
   eligibleOnly: false
 })
-
-const antonymCatalogue = antonyms.filter((antonym) => !antonym?.limited)
 </script>
 
 <route>
