@@ -171,6 +171,8 @@ const init = async () => {
     eth.on('accountsChanged', ([newAddress]: string[]) => {
       cart.clear()
       wallet.clear()
+
+      setAccount(newAddress)
     })
 
     eth.on('chainChanged', (chainId: string) => {
