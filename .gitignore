@@ -12,6 +12,8 @@ dist
 dist-ssr
 .vite-ssg-temp
 *.local
+.env
+.netlify
 
 # Editor directories and files
 .vscode/*

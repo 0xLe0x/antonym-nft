@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite-plugin-windicss'
-import { intro } from './src/consts'
+import intro from './src/consts/intro'
 
 export default defineConfig({
   attributify: {
