@@ -7,8 +7,8 @@ import { storeOrder, getShippingPrice } from '../../common/orders-helper.mjs'
 import { createUser, getUser } from '../../common/users.mjs'
 import {utils} from 'ethers';
 
-const adminToken = process.env.SHOPIFY_ADMIN_TOKEN
-const SHOPIFY_HOST = process.env.SHOPIFY_HOST
+const adminToken = process.env.VITE_SHOPIFY_ADMIN_TOKEN
+const SHOPIFY_HOST = process.env.VITE_SHOPIFY_HOST
 
 const shopifyRestClient = new Shopify.Clients.Rest(SHOPIFY_HOST, adminToken)
 

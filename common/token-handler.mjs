@@ -5,9 +5,9 @@ import { abi } from '../contracts/antonym_abi.json'
 
 const https = require('https')
 
-const URI = process.env.MONGODB_URL
-const dbName = process.env.MONGODB_NAME
-const scAddress = process.env.CONTRACT_ADDRESS
+const URI = process.env.VITE_MONGODB_URL
+const dbName = process.env.VITE_MONGODB_NAME
+const scAddress = process.env.VITE_CONTRACT_ADDRESS
 const isTestnet = true
 const client = new MongoClient(URI, {
 	useNewUrlParser: true,
@@ -49,15 +49,15 @@ export const refreshMeta = async (tokenID)=> {
 } 
 export const getTokenOwner = async (tokenID) => {
 	let provider = new ethers.providers.InfuraProvider(
-		process.env.CHAIN_NETWORK,
-		process.env.INFURA_PROJECT
+		process.env.VITE_CHAIN_NETWORK,
+		process.env.VITE_INFURA_PROJECT
 	)
 	// const signer = new ethers.Wallet(
-	// 	process.env.CONTRACT_OWNER_PRIVATE_KEY,
+	// 	process.env.VITE_CONTRACT_OWNER_PRIVATE_KEY,
 	// 	provider
 	// )
 	const contract = new ethers.Contract(
-		process.env.CONTRACT_ADDRESS,
+		process.env.VITE_CONTRACT_ADDRESS,
 		abi,
 		provider
 	)

@@ -1,10 +1,10 @@
 import { MongoClient } from 'mongodb'
 import { Shopify, DataType } from '@shopify/shopify-api'
 
-const dbName = process.env.MONGODB_NAME
-const URI = process.env.MONGODB_URL
-const adminToken = process.env.SHOPIFY_ADMIN_TOKEN
-const SHOPIFY_HOST = process.env.SHOPIFY_HOST
+const dbName = process.env.VITE_MONGODB_NAME
+const URI = process.env.VITE_MONGODB_URL
+const adminToken = process.env.VITE_SHOPIFY_ADMIN_TOKEN
+const SHOPIFY_HOST = process.env.VITE_SHOPIFY_HOST
 const shopifyRestClient = new Shopify.Clients.Rest(SHOPIFY_HOST, adminToken)
 
 export const getShippingPrice = async (_weight, _country) => {

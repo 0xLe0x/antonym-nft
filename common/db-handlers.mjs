@@ -1,12 +1,12 @@
 import { MongoClient, ServerApiVersion } from 'mongodb'
 
-const URI = process.env.MONGODB_URL
+const URI = process.env.VITE_MONGODB_URL
 const client = new MongoClient(URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	serverApi: ServerApiVersion.v1,
 })
-const dbName = process.env.MONGODB_NAME
+const dbName = process.env.VITE_MONGODB_NAME
 
 export const getUserID = async (address) => {
 	return new Promise(async (resolve, reject) => {

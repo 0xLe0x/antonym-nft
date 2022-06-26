@@ -1,8 +1,8 @@
 import { MongoClient } from 'mongodb'
 import {utils} from 'ethers';
 
-const dbName = process.env.MONGODB_NAME
-const URI = process.env.MONGODB_URL
+const dbName = process.env.VITE_MONGODB_NAME
+const URI = process.env.VITE_MONGODB_URL
 
 export const userRedeemBlack = async(ethaddress) => {
 	console.debug('Updating black ')

@@ -9,9 +9,9 @@ import * as abi from '../../artifacts/contracts/ANTONYM/ANTONYM_ABI.json'
 export const handler = async (event, context) => {
 	try {
 		const nftsArray = await getAllNFTs()
-		const provider = new ethers.providers.JsonRpcProvider(process.env.INFURA_RPC)
+		const provider = new ethers.providers.JsonRpcProvider(process.env.VITE_INFURA_RPC)
 		const contract = new ethers.Contract(
-			process.env.CONTRACT_ADDRESS,
+			process.env.VITE_CONTRACT_ADDRESS,
 			abi,
 			provider
 		)

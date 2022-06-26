@@ -6,8 +6,12 @@ export { default as intro } from './intro.json'
 export { default as zones } from './zones.json'
 export const { PrivacyPolicy, TermsOfUse } = legal
 
+const {
+  VITE_CONTRACT_ADDRESS = ''
+} = import.meta.env
+
 export const smartContract = {
-  contractAddress: '', // TODO: To be imported from env
+  contractAddress: VITE_CONTRACT_ADDRESS,
   chainId: '4',
   abi: antonym_abi.abi
 }
