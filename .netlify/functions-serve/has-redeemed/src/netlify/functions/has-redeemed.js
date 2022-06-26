@@ -55012,9 +55012,9 @@ var require_json_rpc_provider = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/constants.js
+// node_modules/ws/lib/constants.js
 var require_constants5 = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/constants.js"(exports, module2) {
+  "node_modules/ws/lib/constants.js"(exports, module2) {
     "use strict";
     module2.exports = {
       BINARY_TYPES: ["nodebuffer", "arraybuffer", "fragments"],
@@ -55028,9 +55028,9 @@ var require_constants5 = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/buffer-util.js
+// node_modules/ws/lib/buffer-util.js
 var require_buffer_util = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/buffer-util.js"(exports, module2) {
+  "node_modules/ws/lib/buffer-util.js"(exports, module2) {
     "use strict";
     var { EMPTY_BUFFER } = require_constants5();
     function concat(list, totalLength) {
@@ -55113,9 +55113,9 @@ var require_buffer_util = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/limiter.js
+// node_modules/ws/lib/limiter.js
 var require_limiter = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/limiter.js"(exports, module2) {
+  "node_modules/ws/lib/limiter.js"(exports, module2) {
     "use strict";
     var kDone = Symbol("kDone");
     var kRun = Symbol("kRun");
@@ -55147,9 +55147,9 @@ var require_limiter = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/permessage-deflate.js
+// node_modules/ws/lib/permessage-deflate.js
 var require_permessage_deflate = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/permessage-deflate.js"(exports, module2) {
+  "node_modules/ws/lib/permessage-deflate.js"(exports, module2) {
     "use strict";
     var zlib = require("zlib");
     var bufferUtil = require_buffer_util();
@@ -55405,9 +55405,9 @@ var require_permessage_deflate = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/validation.js
+// node_modules/ws/lib/validation.js
 var require_validation = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/validation.js"(exports, module2) {
+  "node_modules/ws/lib/validation.js"(exports, module2) {
     "use strict";
     function isValidStatusCode(code) {
       return code >= 1e3 && code <= 1014 && code !== 1004 && code !== 1005 && code !== 1006 || code >= 3e3 && code <= 4999;
@@ -55459,9 +55459,9 @@ var require_validation = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/receiver.js
+// node_modules/ws/lib/receiver.js
 var require_receiver = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/receiver.js"(exports, module2) {
+  "node_modules/ws/lib/receiver.js"(exports, module2) {
     "use strict";
     var { Writable } = require("stream");
     var PerMessageDeflate = require_permessage_deflate();
@@ -55781,9 +55781,9 @@ var require_receiver = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/sender.js
+// node_modules/ws/lib/sender.js
 var require_sender = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/sender.js"(exports, module2) {
+  "node_modules/ws/lib/sender.js"(exports, module2) {
     "use strict";
     var { randomFillSync } = require("crypto");
     var PerMessageDeflate = require_permessage_deflate();
@@ -56004,9 +56004,9 @@ var require_sender = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/event-target.js
+// node_modules/ws/lib/event-target.js
 var require_event_target = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/event-target.js"(exports, module2) {
+  "node_modules/ws/lib/event-target.js"(exports, module2) {
     "use strict";
     var Event = class {
       constructor(type, target) {
@@ -56086,9 +56086,9 @@ var require_event_target = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/extension.js
+// node_modules/ws/lib/extension.js
 var require_extension = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/extension.js"(exports, module2) {
+  "node_modules/ws/lib/extension.js"(exports, module2) {
     "use strict";
     var tokenChars = [
       0,
@@ -56384,9 +56384,9 @@ var require_extension = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/websocket.js
+// node_modules/ws/lib/websocket.js
 var require_websocket = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/websocket.js"(exports, module2) {
+  "node_modules/ws/lib/websocket.js"(exports, module2) {
     "use strict";
     var EventEmitter = require("events");
     var https = require("https");
@@ -56910,9 +56910,9 @@ var require_websocket = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/stream.js
+// node_modules/ws/lib/stream.js
 var require_stream = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/stream.js"(exports, module2) {
+  "node_modules/ws/lib/stream.js"(exports, module2) {
     "use strict";
     var { Duplex } = require("stream");
     function emitClose(stream) {
@@ -57029,9 +57029,9 @@ var require_stream = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/lib/websocket-server.js
+// node_modules/ws/lib/websocket-server.js
 var require_websocket_server = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/lib/websocket-server.js"(exports, module2) {
+  "node_modules/ws/lib/websocket-server.js"(exports, module2) {
     "use strict";
     var EventEmitter = require("events");
     var { createHash } = require("crypto");
@@ -57246,9 +57246,9 @@ var require_websocket_server = __commonJS({
   }
 });
 
-// node_modules/@ethersproject/providers/node_modules/ws/index.js
+// node_modules/ws/index.js
 var require_ws = __commonJS({
-  "node_modules/@ethersproject/providers/node_modules/ws/index.js"(exports, module2) {
+  "node_modules/ws/index.js"(exports, module2) {
     "use strict";
     var WebSocket = require_websocket();
     WebSocket.createWebSocketStream = require_stream();

@@ -15,6 +15,7 @@
     "@netlify/functions": "^1.0.0",
     "@vueuse/core": "^8.7.4",
     "@vueuse/head": "^0.7.6",
+    "axios": "^0.27.2",
     "ethers": "^5.6.9",
     "merkletreejs": "^0.2.32",
     "mitt": "^3.0.0",
