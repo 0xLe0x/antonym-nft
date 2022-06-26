@@ -1,5 +1,5 @@
 import legal from './legal.json'
-import { abi } from '@/consts/antonym_abi.json'
+import antonym_abi from './antonym_abi'
 
 export { default as antonyms } from './antonyms.json'
 export { default as intro } from './intro.json'
@@ -10,5 +10,5 @@ export const { PrivacyPolicy, TermsOfUse } = legal
 export const smartContract = {
   contractAddress: '', // TODO: To be imported from env
   chainId: '4',
-  abi
+  abi: antonym_abi.abi
 }
