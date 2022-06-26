@@ -1,4 +1,4 @@
-import { antonyms } from '@/consts'
+import { capsules } from '@/consts'
 
 export type TokenAttribute = {
   trait_type: string,
@@ -9,5 +9,5 @@ export type Token = {
   attributes?: TokenAttribute[]
 }
 
-type CapsuleArray = typeof antonyms
+type CapsuleArray = typeof capsules
 export type Capsule = CapsuleArray[number];

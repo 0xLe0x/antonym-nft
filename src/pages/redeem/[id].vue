@@ -117,12 +117,12 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { antonyms } from '@/consts'
+import { capsules } from '@/consts'
 
 const route = useRoute()
 const router = useRouter()
 
-const antonym = computed(() => antonyms.find(
+const antonym = computed(() => capsules.find(
   ({ capsule_trait }) => capsule_trait === route.params.id
 ))
 
