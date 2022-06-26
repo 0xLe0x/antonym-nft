@@ -3,7 +3,8 @@ import account from './account'
 
 type Token = {
   tokenID: string,
-  attributes?: { trait_type: string, value: string }[]
+  attributes?: { trait_type: string, value: string }[],
+  redeemed: boolean
 }
 
 const tokens = ref([] as Token[])
