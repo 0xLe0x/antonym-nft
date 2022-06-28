@@ -1,10 +1,17 @@
 import { reactive, ref } from 'vue'
 
-const items = ref([] as any[])
+type CartItem = {
+  size: string,
+  trait_type: string,
+  image: string,
+  selectedTokens: any[]
+}
+
+const items = ref([] as CartItem[])
 const selectedTokens = ref([] as any[])
 
-const removeItem = (item: any) => {
-  if (item.capsule_trait !== 'black') {
+const removeItem = (item: CartItem) => {
+  if (item.trait_type !== 'black') {
     items.value = items.value.filter((ele) => ele !== item)
 
     selectedTokens.value = selectedTokens.value.filter(
@@ -22,11 +29,11 @@ const clear = () => {
   items.value = []
 }
 
-const addBlackEdition = (item: any) => {
+const addBlackEdition = (item: CartItem) => {
   items.value.push(item)
 }
 
-const addItem = (item: any) => {
+const addItem = (item: CartItem) => {
   if (selectedTokens.value.some(
     (selected) => selectedTokens.value.some((token: any) => token === selected)
   )) {

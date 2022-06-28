@@ -44,7 +44,7 @@ const props = defineProps<{
 
 const isEligible = (capsule: Capsule) => {
   return wallet.capsuleTypes[capsule.capsule_trait] ||
-    wallet.tokens.some(token => token.attributes?.some(
+    wallet.tokens.some(token => token.attributes.some(
       attr => attr.value === '1/1' && !token.redeemed))
 }
 

@@ -65,7 +65,7 @@ const getAccountNFT = async () => {
 
     await Promise.all(resolvers)
   } catch (err) {
-    return []
+    // TODO: Error handler
   }
 }
 

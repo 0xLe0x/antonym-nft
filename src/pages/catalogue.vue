@@ -1,5 +1,5 @@
 <template>
-  <main class="catalogue page pt-24 sm:pt-28 md:pt-32 xl:pt-48">
+  <main class="catalogue page pt-20 sm:pt-24 md:pt-28 xl:pt-40">
     <div class="container mx-auto">
       <div class="font-bold uppercase">
         Season1

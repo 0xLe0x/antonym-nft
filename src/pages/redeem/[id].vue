@@ -15,36 +15,36 @@
       <div class="flex flex-col md:flex-row md:items-start">
         <img
           class="w-4/5 md:w-80 lg:w-100 xl:w-140 2xl:w-200 <md:mx-auto md:mr-8 <md:mt-6 object-cover flex-grow-0 flex-shrink-0"
-          :src="antonym?.image"
+          :src="capsule?.image"
           width="800"
           height="800"
-          :alt="antonym?.capsule_trait"
+          :alt="capsule?.capsule_trait"
         >
         <div>
           <h1 class="text-2xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl uppercase">
-            {{ antonym?.name }}
+            {{ capsule?.name }}
           </h1>
           <div class="text-xs uppercase opacity-60">
-            /{{ antonym?.capsule_trait }}
+            /{{ capsule?.capsule_trait }}
           </div>
           <p
-            v-if="antonym?.limited"
+            v-if="capsule?.limited"
             class="mt-5"
           >
-            {{ antonym.name }} is a limited edition run 12” and 24” only accesible to holders of 4+ and 20+ Antonym NFTs.
-            Holders of 4+ NFTs can claim a complimentary {{ antonym.name }} 12”.
-            20+ holders can claim a complimentary {{ antonym.name }} 24”.
+            {{ capsule.name }} is a limited edition run 12” and 24” only accesible to holders of 4+ and 20+ Antonym NFTs.
+            Holders of 4+ NFTs can claim a complimentary {{ capsule.name }} 12”.
+            20+ holders can claim a complimentary {{ capsule.name }} 24”.
           </p>
           <p
             v-else
             class="mt-5"
           >
             First-edition Antonym physical art toy.
-            <span class="uppercase">“{{ antonym?.capsule_trait }}”</span> is the final
+            <span class="uppercase">“{{ capsule?.capsule_trait }}”</span> is the final
             capsule in a series of 30 Antonym physical editions, available for
             redemption to select holders of our genesis collection.
-            <span class="uppercase">“{{ antonym?.capsule_trait }}”</span> features a
-            {{ antonym?.type }} finish.
+            <span class="uppercase">“{{ capsule?.capsule_trait }}”</span> features a
+            {{ capsule?.type }} finish.
           </p>
 
           <div class="mt-12">
@@ -68,15 +68,22 @@
           </div>
           <div class="flex flex-wrap items-center mt-2">
             <button
-              v-for="size in (antonym?.limited ? [12, 24] : [12, 24, 60])"
+              v-for="size in (capsule?.limited ? ['12', '24'] : ['12', '24', '60'])"
               :key="size"
               class="toggle-button md:text-base mr-4 py-2 px-5 lg:px-8"
-              :class="{ 'toggle-button--active': size === selectedSize }"
-              @click="selectedSize = size"
+              :class="{
+                'toggle-button--active': size === options.size,
+                'toggle-button--disabled': !hasMinItmes(size)
+              }"
+              @click="selectSize(size)"
             >
               {{ size }}"
             </button>
-            <button class="toggle-button toggle-button--active md:text-base py-2 px-8 lg:w-50 <sm:py-7 <sm:w-full <sm:mt-2 <sm:rounded-lg">
+            <button
+              class="toggle-button toggle-button--active md:text-base py-2 px-8 lg:w-50 <sm:py-7 <sm:w-full <sm:mt-2 <sm:rounded-lg"
+              :class="{ 'toggle-button--disabled': !isEligible }"
+              @click="redeem"
+            >
               REDEEM
             </button>
           </div>
@@ -96,7 +103,7 @@
               Materials
             </div>
             <hr class="mt-2 mb-3">
-            <p v-if="antonym?.limited">
+            <p v-if="capsule?.limited">
               Vinyl (12”, 24”)<br><br>
               Base Color: Black<br>
               Finish: Matte Ruberized<br>
@@ -111,25 +118,96 @@
         </div>
       </div>
     </div>
+
+    <catalogue-nft-modal
+      v-if="capsule && !capsule.limited && isEligible"
+      v-model="options.showNFTModal"
+      :capsule="capsule"
+      :size="options.size"
+    />
   </main>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { capsules } from '@/consts'
+import { capsules, ItemsPerSizeMap } from '@/consts'
+import wallet from '@/use/wallet'
+import cart from '@/use/cart'
 
 const route = useRoute()
 const router = useRouter()
 
-const antonym = computed(() => capsules.find(
+const capsule = computed(() => capsules.find(
   ({ capsule_trait }) => capsule_trait === route.params.id
 ))
 
-const selectedSize = ref(12)
+const options = reactive({
+  size: '12',
+  tokens: [],
+  showNFTModal: false
+})
+
+const hasMinItmes = (size: string) => {
+  if (!wallet.balance) { return false }
+
+  for (const s in ItemsPerSizeMap) {
+    if (size === s && wallet.balance < ItemsPerSizeMap[s]) {
+      return false
+    }
+  }
+
+  return true
+}
+
+const selectSize = (size: string) => {
+  if (hasMinItmes(size)) {
+    options.size = size
+  }
+}
+
+const isEligible = computed(() => {
+  // If Antonym black, check if it's in the cart
+  if (capsule.value?.limited) {
+    return cart.items.some(({ trait_type }) => trait_type === 'black')
+  }
+
+  // If not...
+  return wallet.capsuleTypes[capsule.value?.capsule_trait || ''] ||
+    wallet.tokens.some((token) => token.attributes.some(
+      (attr) => attr.value === '1/1' && !token.redeemed)
+    )
+})
+
+const continueOrder = () => {
+  const item = {
+    size: options.size,
+    trait_type: capsule.value?.capsule_trait || '',
+    image: capsule.value?.image || '',
+    selectedTokens: options.tokens
+  }
+
+  try {
+    if (capsule.value?.limited) {
+      cart.addBlackEdition(item)
+    } else {
+      cart.addItem(item)
+    }
+
+    options.showNFTModal = false
+  } catch (err) {
+    // TODO: Error Handler
+  }
+}
+
+const redeem = () => {
+  if (!isEligible.value) { return }
+
+  options.showNFTModal = true
+}
 
 onMounted(() => {
-  if (!antonym.value) {
+  if (!capsule.value) {
     router.push({ name: 'Catalogue' })
   }
 })

@@ -1,6 +1,6 @@
 <template>
   <main-header />
-  <main class="page pt-24 sm:pt-28 md:pt-32 xl:pt-48">
+  <main class="page pt-20 sm:pt-24 md:pt-28 xl:pt-40">
     <router-link
       class="inline-flex items-center opacity-40 mr-auto"
       :to="{ name: 'Catalogue' }"
