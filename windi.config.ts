@@ -36,9 +36,9 @@ export default defineConfig({
   ],
   shortcuts: {
     // Common
-    'header': 'fixed top-0 left-0 w-full flex items-center px-4 py-6 lg:px-8 lg:py-10 2xl:px-16 2xl:py-16 z-50',
+    'header': 'fixed top-0 left-0 w-full flex items-center px-4 py-6 lg:px-8 lg:py-10 2xl:px-12 2xl:py-12 z-50',
     'footer': 'relative z-20 mt-4 lg:mt-8 2xl:mt-10',
-    'page': 'min-h-screen pt-16 lg:pt-20 2xl:pt-40 px-4 pb-6 lg:px-8 lg:pb-8 2xl:px-16 2xl:pb-10',
+    'page': 'min-h-screen pt-12 lg:pt-16 2xl:pt-32 px-4 pb-6 lg:px-8 lg:pb-8 2xl:px-12 2xl:pb-10',
     'page-title': 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-12 sm:mb-16 lg:mb-20 2xl:mb-24',
     'button-connect': 'bg-dark text-white text-xs sm:text-sm md:text-md lg:text-lg 2xl:text-2xl uppercase px-8 py-2 md:px-10 md:py-3 2xl:px-12 2xl:py-4 rounded-full',
     'button-connect--small': 'border border-darkgrey px-3 py-2 text-xs rounded-full uppercase',
