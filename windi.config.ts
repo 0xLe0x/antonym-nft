@@ -58,6 +58,9 @@ export default defineConfig({
       '.toggle-button': { '@apply': 'text-white/40 border-white/40' },
       '.toggle-button--active': { '@apply': 'bg-white text-black' }
     },
+    'flex-center': 'items-center justify-center',
+    'fixed-center': 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2',
+    'fixed-stretch': 'top-0 left-0 right-0 bottom-0',
 
     // Legal Tabs
     'legal-tab': 'block border-b border-t border-black px-2 md:px-3 2xl:px-4 py-2 md:py-4 2xl:py-6',
