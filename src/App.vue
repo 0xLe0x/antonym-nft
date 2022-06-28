@@ -3,11 +3,27 @@
 </template>
 
 <style>
-html, body {
-  color: #232323;
+html{
   overflow: hidden auto;
+}
+.html--use-modal {
+  overflow-y: hidden;
+}
+
+body {
+  color: #232323;
   font-weight: 500;
   font-family: 'Helvetica Now Display';
   scroll-behavior: smooth;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
