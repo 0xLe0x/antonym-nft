@@ -127,10 +127,7 @@
           <hr class="mt-4 mb-8">
           <button
             class="toggle-button toggle-button--active w-full lg:text-base py-5 lg:py-6 rounded-none uppercase"
-            :class="{
-              'toggle-button--disabled': !form.agree,
-              'cursor-not-allowed': !form.agree
-            }"
+            :class="{ 'cursor-not-allowed': !form.agree }"
             :disabled="!form.agree"
             @click="confirm"
           >
@@ -144,8 +141,16 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
+import * as Toast from 'vue-toastification'
+import { JsonRpcSigner } from '@ethersproject/providers'
+
 import { isValidEmail } from '@/utils/validators'
 import { zones } from '@/consts'
+import cart from '@/use/cart'
+import order from '@/use/order'
+import account from '@/use/account'
+
+const toast = Toast.useToast && Toast.useToast()
 
 const countries = zones.map((zone, idx) => ({
   label: zone.countries[0].name,
@@ -180,11 +185,63 @@ const validation = computed(() => ({
 
 const isValidForm = computed(() => !Object.values(validation.value).find((invalid) => !!invalid))
 
-const confirm = () => {
-  form.fresh = false
+const createOrder = async () => {
+  const signer = await account.provider?.getSigner() as JsonRpcSigner
+  const message = `I'm signing to redeem this Antonym toy  at ${new Date()}`
+  const signature = await signer.signMessage(message)
 
-  if (isValidForm.value) {
-    // Hello World
+  const res = await fetch('/.netlify/functions/redeem-shopify-merch', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: JSON.stringify({
+      ethAddress: account.activeAccount,
+      signature,
+      message,
+      name: [form.firstName, form.lastName].join(' '),
+      email: form.email,
+      discordId: form.discord,
+      address: {
+        // phone: '', TODO: clarify this
+        address1: form.address1,
+        address2: form.address2,
+        city: form.city,
+        province: form.state,
+        zip: form.zip,
+        country: form.country
+      },
+      items: [...cart.items]
+    })
+  })
+
+  return res.json()
+}
+
+const completeOrder = async () => {
+}
+
+const confirm = async () => {
+  form.fresh = false
+  if (!isValidForm.value) { return }
+
+  try {
+    await account.provider?.getSigner()
+    const orderDetails = await createOrder()
+    const orderInfo = {
+      id: orderDetails.id,
+      price: orderDetails.total_price,
+      status: 'unpaid'
+    }
+    order.order = orderInfo
+
+    await completeOrder()
+  } catch (err: any) {
+    toast.error(err.message || 'Something went wrong. Try again.', {
+      position: Toast.POSITION.TOP_RIGHT,
+      timeout: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      icon: true
+    })
   }
 }
 </script>

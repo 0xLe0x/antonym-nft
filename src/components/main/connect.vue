@@ -13,9 +13,12 @@
     >
       {{ account.activeAccount ? 'Disconnect' : 'Connect' }}
     </button>
-    <div class="order-count ml-8">
+    <router-link
+      class="order-count ml-8"
+      :to="{ name: 'Cart' }"
+    >
       {{ cart.items.length }}
-    </div>
+    </router-link>
   </template>
 </template>
 

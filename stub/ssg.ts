@@ -97,14 +97,14 @@ const ssrWindow = {
   matchMedia () {
     return {}
   },
-  requestAnimationFrame (callback) {
+  requestAnimationFrame (callback: any) {
     if (typeof setTimeout === 'undefined') {
       callback()
       return null
     }
     return setTimeout(callback, 0)
   },
-  cancelAnimationFrame (id) {
+  cancelAnimationFrame (id: any) {
     if (typeof setTimeout === 'undefined') {
       return
     }

@@ -1,9 +1,14 @@
 import { computed, reactive, ref } from 'vue'
 import account from './account'
 
-type Token = {
+export type Token = {
+  _id: string,
   tokenID: string,
-  attributes?: { trait_type: string, value: string }[],
+  owner: string,
+  name: string,
+  image: string,
+  description: string,
+  attributes: { trait_type: string, value: string }[],
   redeemed: boolean
 }
 
@@ -21,7 +26,7 @@ const tokenMap = computed(() => tokens.value
 )
 
 const addToken = (token: Token) => {
-  if (tokenMap.value[token.tokenID]) {
+  if (!tokenMap.value[token.tokenID]) {
     tokens.value.push(token)
   }
 }
@@ -89,6 +94,7 @@ export default reactive({
   tokens,
   capsuleTypes,
   balance,
+  blackRedeemed,
 
   clear,
   clearTokens,

@@ -22,17 +22,10 @@
           </router-link>
         </li>
         <li class="mr-2 sm:mr-5">
-          <a class="hover:underline">
-            <span class="lg:hidden">
-              FAQ
-            </span>
-            <span class="<lg:hidden">
-              Frequently Asked Questions
-            </span>
-          </a>
-        </li>
-        <li class="mr-2 sm:mr-5">
-          <a class="hover:underline">
+          <a
+            class="hover:underline"
+            href="mailto:info@antonymnft.com"
+          >
             Contact us
           </a>
         </li>
