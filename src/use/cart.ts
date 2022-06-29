@@ -42,6 +42,8 @@ const addItem = (item: CartItem) => {
 }
 
 const loadLastCart = () => {
+  if (typeof localStorage === 'undefined') { return }
+
   const cartInfoStr = localStorage.getItem('cart')
 
   if (!cartInfoStr) { return }
