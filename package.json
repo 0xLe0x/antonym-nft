@@ -27,7 +27,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
     "@ehutch79/vite-eslint": "^0.0.1",
-    "@shopify/shopify-api": "^3.0.0",
+    "@shopify/shopify-api": "3.0.0",
     "@types/node": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
