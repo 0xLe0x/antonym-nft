@@ -150,7 +150,7 @@ import cart from '@/use/cart'
 import order from '@/use/order'
 import account from '@/use/account'
 
-const toast = Toast.useToast()
+const toast = Toast.useToast && Toast.useToast()
 
 const countries = zones.map((zone, idx) => ({
   label: zone.countries[0].name,

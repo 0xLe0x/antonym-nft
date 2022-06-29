@@ -163,6 +163,9 @@ const setAccount = async (newAccount: string) => {
 }
 
 const init = async () => {
+  // Avoid this on server side
+  if (typeof window.ethereum === 'undefined') { return }
+
   const eth: any = await detectEthereumProvider()
 
   if (!listenersCreated.value) {
@@ -204,7 +207,7 @@ export default reactive({
 })
 
 export const useAccount = () => {
-  const toast = Toast.useToast()
+  const toast = Toast.useToast && Toast.useToast()
 
   const toggleWallet = async () => {
     try {
