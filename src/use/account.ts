@@ -193,6 +193,7 @@ const init = async () => {
 
 export default reactive({
   activeAccount,
+  provider,
 
   networkName,
   accountCompact,
