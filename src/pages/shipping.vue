@@ -127,10 +127,7 @@
           <hr class="mt-4 mb-8">
           <button
             class="toggle-button toggle-button--active w-full lg:text-base py-5 lg:py-6 rounded-none uppercase"
-            :class="{
-              'toggle-button--disabled': !form.agree,
-              'cursor-not-allowed': !form.agree
-            }"
+            :class="{ 'cursor-not-allowed': !form.agree }"
             :disabled="!form.agree"
             @click="confirm"
           >
