@@ -6,7 +6,7 @@
       @click="$emit('update:modelValue', false)"
     >
       <div
-        class="max-w-full <md:min-h-screen bg-white px-4 py-8 sm:px-8 sm:rounded-lg w-full md:w-3xl lg:w-4xl xl:w-5xl 2xl:w-7xl z-120 mx-auto"
+        class="max-w-full <md:min-h-screen bg-white p-8 sm:rounded-lg w-full md:w-3xl lg:w-4xl xl:w-5xl 2xl:w-7xl z-120 mx-auto"
         @click.stop
       >
         <a
@@ -39,8 +39,12 @@
             v-for="token in userRedeemableTokens"
             :key="token._id"
             class="relative w-full md:w-1/5 cursor-pointer p-2"
+            @click="toggleSelect(token)"
           >
-            <img :src="token.image">
+            <img
+              class="aspect-square"
+              :src="token.image"
+            >
             <div class="absolute top-4 left-4 text-white text-xs sm:text-lg md:text-xs lg:text-sm 2xl:text-lg">
               <span class="text-xs">
                 #{{ token.tokenID }}
@@ -49,11 +53,23 @@
                 {{ getCapsuleTrait(token) }}
               </span>
             </div>
+            <div
+              v-if="isSelected(token)"
+              class="absolute -top-1 -right-1 flex flex-center border-2 border-black w-8 h-8 rounded-full"
+              :class="{
+                'bg-white': getCapsuleTrait(token) === capsule.capsule_trait,
+                'bg-black text-white': getCapsuleTrait(token) !== capsule.capsule_trait
+              }"
+            >
+              <i class="text-2xl mdi mdi-check" />
+            </div>
           </div>
         </div>
 
         <button
           class="sticky bottom-4 md:-bottom-16 toggle-button toggle-button--active <md:w-full text-xl rounded-full px-4 py-2 mt-2 ml-auto"
+          :disabled="!canRedeem"
+          @click="redeem"
         >
           Confirm
           <i class="mdi mdi-arrow-right ml-2" />
@@ -70,7 +86,8 @@ import { ItemsPerSizeMap } from '@/consts'
 import wallet, { Token } from '@/use/wallet'
 import cart from '@/use/cart'
 
-defineEmits<{
+const emit = defineEmits<{
+  (event: 'redeem', value: Token[]): void
   (event: 'update:modelValue', value: boolean): void
 }>()
 const props = defineProps<{
@@ -80,6 +97,19 @@ const props = defineProps<{
 }>()
 
 const itemsLimit = computed(() => ItemsPerSizeMap[props.size])
+const selectedItems = ref([] as Token[])
+
+const hasOneTrait = computed(() => selectedItems.value.map(
+  ({ attributes }) => attributes
+    .filter(({ trait_type }) => trait_type === 'Capsule' || trait_type === 'Skin Name')
+    .some(({ value }) => value === props.capsule.capsule_trait || value === '1/1')
+))
+
+const canRedeem = computed(() => {
+  if (!hasOneTrait.value) { return false }
+  if (selectedItems.value.length < itemsLimit.value) { return false }
+  return true
+})
 
 const alreadyInCart = (tokenID: string) => {
   return cart.selectedTokens.some((token) => token.tokenID === tokenID)
@@ -110,10 +140,39 @@ const userRedeemableTokens = computed(() => {
   return result
 })
 
+const toggleSelect = (token: Token) => {
+  if (selectedItems.value.includes(token)) {
+    selectedItems.value = selectedItems.value.filter((t) => t !== token)
+  } else if (selectedItems.value.length < itemsLimit.value) {
+    selectedItems.value.push(token)
+  }
+}
+
+const isSelected = (token: Token) => {
+  return selectedItems.value.includes(token)
+}
+
+const prepareModal = () => {
+  for (const token of wallet.tokens) {
+    if (token.redeemed || alreadyInCart(token.tokenID)) continue
+
+    if (matchTrait(token, props.capsule.capsule_trait)) {
+      selectedItems.value = [token]
+      return
+    }
+  }
+}
+
+const redeem = () => {
+  emit('redeem', [...selectedItems.value])
+}
+
 watch(() => props.modelValue, (value) => {
   if (value) {
     const root = document.getElementsByTagName('html')[0]
     root.classList.add('html--use-modal')
+
+    prepareModal()
   } else {
     const root = document.getElementsByTagName('html')[0]
     root.classList.remove('html--use-modal')

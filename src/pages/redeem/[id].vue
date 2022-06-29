@@ -1,6 +1,6 @@
 <template>
   <main
-    class="redeem page py-24 sm:py-28 md:py-32 xl:py-48"
+    class="page py-24 sm:py-28 md:py-32 xl:py-48"
     :class="{ 'theme--dark': route.params.id === 'black' }"
   >
     <router-link
@@ -71,17 +71,15 @@
               v-for="size in (capsule?.limited ? ['12', '24'] : ['12', '24', '60'])"
               :key="size"
               class="toggle-button md:text-base mr-4 py-2 px-5 lg:px-8"
-              :class="{
-                'toggle-button--active': size === options.size,
-                'toggle-button--disabled': !hasMinItmes(size)
-              }"
+              :class="{ 'toggle-button--active': size === options.size }"
+              :disabled="!hasMinItmes(size)"
               @click="selectSize(size)"
             >
               {{ size }}"
             </button>
             <button
               class="toggle-button toggle-button--active md:text-base py-2 px-8 lg:w-50 <sm:py-7 <sm:w-full <sm:mt-2 <sm:rounded-lg"
-              :class="{ 'toggle-button--disabled': !isEligible }"
+              :disabled="!isBlackEnligible && !isEligible"
               @click="redeem"
             >
               REDEEM
@@ -124,6 +122,7 @@
       v-model="options.showNFTModal"
       :capsule="capsule"
       :size="options.size"
+      @redeem="continueOrder"
     />
   </main>
 </template>
@@ -131,8 +130,9 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { capsules, ItemsPerSizeMap } from '@/consts'
-import wallet from '@/use/wallet'
+import { capsules, BlackItemsPerSizeMap, ItemsPerSizeMap } from '@/consts'
+import account from '@/use/account'
+import wallet, { Token } from '@/use/wallet'
 import cart from '@/use/cart'
 
 const route = useRoute()
@@ -144,20 +144,20 @@ const capsule = computed(() => capsules.find(
 
 const options = reactive({
   size: '12',
-  tokens: [],
   showNFTModal: false
 })
 
+const isBlackEnligible = computed(() => {
+  return capsule.value?.capsule_trait === 'black' &&
+    (account.activeAccount && wallet.balance && wallet.balance >= 4) &&
+    !cart.items.some(({ trait_type }) => trait_type === 'black') &&
+    !wallet.blackRedeemed
+})
+
 const hasMinItmes = (size: string) => {
-  if (!wallet.balance) { return false }
+  const sizeMap = capsule.value?.limited ? BlackItemsPerSizeMap : ItemsPerSizeMap
 
-  for (const s in ItemsPerSizeMap) {
-    if (size === s && wallet.balance < ItemsPerSizeMap[s]) {
-      return false
-    }
-  }
-
-  return true
+  return wallet.balance && wallet.balance >= sizeMap[size]
 }
 
 const selectSize = (size: string) => {
@@ -167,9 +167,9 @@ const selectSize = (size: string) => {
 }
 
 const isEligible = computed(() => {
-  // If Antonym black, check if it's in the cart
+  // If Antonym black, then it's not the case
   if (capsule.value?.limited) {
-    return cart.items.some(({ trait_type }) => trait_type === 'black')
+    return false
   }
 
   // If not...
@@ -179,28 +179,39 @@ const isEligible = computed(() => {
     )
 })
 
-const continueOrder = () => {
+const continueOrder = (selectedTokens: Token[]) => {
   const item = {
     size: options.size,
     trait_type: capsule.value?.capsule_trait || '',
     image: capsule.value?.image || '',
-    selectedTokens: options.tokens
+    selectedTokens
   }
 
-  try {
-    if (capsule.value?.limited) {
-      cart.addBlackEdition(item)
-    } else {
-      cart.addItem(item)
-    }
+  if (capsule.value?.limited) {
+    cart.addBlackEdition({
+      size: options.size,
+      trait_type: capsule.value.capsule_trait,
+      image: capsule.value.image,
+      selectedTokens: []
+    })
+  } else {
+    cart.addItem(item)
 
     options.showNFTModal = false
-  } catch (err) {
-    // TODO: Error Handler
+    setTimeout(() => {
+      router.push({ name: 'Cart' })
+    }, 1000)
   }
 }
 
 const redeem = () => {
+  if (capsule.value?.capsule_trait === 'black') {
+    continueOrder([])
+    setTimeout(() => {
+      router.push({ name: 'Cart' })
+    }, 1000)
+  }
+
   if (!isEligible.value) { return }
 
   options.showNFTModal = true

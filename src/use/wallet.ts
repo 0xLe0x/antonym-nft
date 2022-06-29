@@ -94,6 +94,7 @@ export default reactive({
   tokens,
   capsuleTypes,
   balance,
+  blackRedeemed,
 
   clear,
   clearTokens,

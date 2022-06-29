@@ -6,6 +6,8 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseInput: typeof import('./src/components/base/input.vue')['default']
+    CartItem: typeof import('./src/components/cart/item.vue')['default']
+    CartList: typeof import('./src/components/cart/list.vue')['default']
     CatalogueListView: typeof import('./src/components/catalogue/list-view.vue')['default']
     CatalogueNftModal: typeof import('./src/components/catalogue/nft-modal.vue')['default']
     IntroCarousel: typeof import('./src/components/intro/carousel.vue')['default']

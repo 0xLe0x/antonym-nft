@@ -1,10 +1,11 @@
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
+import { Token } from './wallet'
 
-type CartItem = {
+export type CartItem = {
   size: string,
   trait_type: string,
   image: string,
-  selectedTokens: any[]
+  selectedTokens: Token[]
 }
 
 const items = ref([] as CartItem[])
@@ -34,13 +35,31 @@ const addBlackEdition = (item: CartItem) => {
 }
 
 const addItem = (item: CartItem) => {
-  if (selectedTokens.value.some(
-    (selected) => selectedTokens.value.some((token: any) => token === selected)
-  )) {
+  if (!selectedTokens.value.some((selected) => item.selectedTokens.includes(selected))) {
     items.value.push(item)
     selectedTokens.value.push(...item.selectedTokens)
   }
 }
+
+const loadLastCart = () => {
+  const cartInfoStr = localStorage.getItem('cart')
+
+  if (!cartInfoStr) { return }
+
+  const cartInfo = JSON.parse(cartInfoStr)
+
+  items.value = cartInfo.items
+  selectedTokens.value = cartInfo.selectedTokens
+}
+const saveCart = () => {
+  localStorage.setItem('cart', JSON.stringify({
+    items: items.value,
+    selectedTokens: selectedTokens.value
+  }))
+}
+
+watch([items, selectedTokens], saveCart, { deep: true })
+loadLastCart()
 
 export default reactive({
   items,

@@ -39,14 +39,16 @@ export default defineConfig({
     'header': 'fixed top-0 left-0 w-full flex items-center px-4 py-6 lg:px-8 lg:py-10 2xl:px-12 2xl:py-12 z-50',
     'footer': 'relative z-20 mt-4 lg:mt-8 2xl:mt-10',
     'page': 'min-h-screen pt-12 lg:pt-16 2xl:pt-32 px-4 pb-6 lg:px-8 lg:pb-8 2xl:px-12 2xl:pb-10',
-    'page-title': 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-12 sm:mb-16 lg:mb-20 2xl:mb-24',
+    'page-title': 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-8 sm:mb-12 lg:mb-16 2xl:mb-20',
     'button-connect': 'bg-dark text-white text-xs sm:text-sm md:text-md lg:text-lg 2xl:text-2xl uppercase px-8 py-2 md:px-10 md:py-3 2xl:px-12 2xl:py-4 rounded-full',
     'button-connect--small': 'border border-darkgrey px-3 py-2 text-xs rounded-full uppercase',
     'order-count': 'flex items-center justify-center w-8 h-8 bg-darkgrey text-white font-bold text-md rounded-full',
     'checkbox': 'h-4 w-4 appearance-none rounded-full border border-black/50 ring-inset ring-white checked:bg-black/70 checked:ring-2',
-    'toggle-button': 'flex items-center justify-center border border-black/50 text-black/50 text-xs rounded-l rounded-r',
+    'toggle-button': {
+      '@apply': 'flex items-center justify-center border border-black/50 text-black/50 text-xs rounded-l rounded-r',
+      '&[disabled]': { '@apply': 'opacity-50 cursor-not-allowed' }
+    },
     'toggle-button--active': 'bg-black text-white',
-    'toggle-button--disabled': 'opacity-50',
     'scroll-up': 'flex items-center justify-center w-20 h-20 md:w-24 md:h-24 lg:w-30 lg:h-30 border border-black rounded-full cursor-pointer',
     'hoverable': 'relative hover:before:content-[""] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-black/5 cursor-pointer',
 

@@ -6,6 +6,10 @@ export const ItemsPerSizeMap: Record<string, number> = {
   24: 4,
   60: 20
 }
+export const BlackItemsPerSizeMap: Record<string, number> = {
+  12: 4,
+  24: 20
+}
 
 export { default as capsules } from './capsules.json'
 export { default as intro } from './intro.json'
