@@ -27,16 +27,22 @@
         </p>
 
         <hr class="<lg:hidden my-4">
-        <button class="<sm:w-full <lg:hidden toggle-button toggle-button--active rounded-none py-8 px-30 uppercase ml-auto">
+        <router-link
+          class="<sm:w-full <lg:hidden toggle-button toggle-button--active rounded-none py-8 px-30 uppercase ml-auto"
+          :to="{ name: 'Shipping' }"
+        >
           Redeem
-        </button>
+        </router-link>
       </div>
     </div>
 
     <hr class="lg:hidden my-4">
-    <button class="<sm:w-full lg:hidden toggle-button toggle-button--active rounded-none py-8 px-30 uppercase mx-auto">
+    <router-link
+      class="<sm:w-full lg:hidden toggle-button toggle-button--active rounded-none py-8 px-30 uppercase mx-auto"
+      :to="{ name: 'Shipping' }"
+    >
       Redeem
-    </button>
+    </router-link>
   </main>
 </template>
 
