@@ -9,13 +9,21 @@
         class="max-w-full <lg:min-h-screen bg-white p-8 sm:rounded-lg w-full lg:w-5xl z-120 mx-auto"
         @click.stop
       >
-        <a
-          class="inline-flex items-center opacity-40 mr-auto cursor-pointer"
-          @click="$emit('update:modelValue', false)"
-        >
-          <i class="text-2xl mdi mdi-arrow-left-thin mr-2" />
-          Keep Browsing
-        </a>
+        <div class="flex justify-between">
+          <a
+            class="inline-flex items-center opacity-40 mr-auto cursor-pointer"
+            @click="$emit('update:modelValue', false)"
+          >
+            <i class="text-2xl mdi mdi-arrow-left-thin mr-2" />
+            Keep Browsing
+          </a>
+          <a
+            class="cursor-pointer"
+            @click="$emit('update:modelValue', false)"
+          >
+            <i class="text-xl mdi mdi-close" />
+          </a>
+        </div>
 
         <div class="flex flex-col lg:flex-row mt-9">
           <div class="w-full lg:w-120 flex-shrink-0">
@@ -39,9 +47,15 @@
               >
                 REDEEMED
               </div>
-              <div v-else>
-                REDEEM ↗
-              </div>
+              <router-link
+                v-else
+                :to="{
+                  name: 'Redeem',
+                  params: { id: getCapsuleTrait(token) }
+                }"
+              >
+                REDEEM NOW ↗
+              </router-link>
             </div>
           </div>
           <div class="flex flex-col w-full lg:ml-8 <lg:mt-8">
@@ -69,7 +83,7 @@
                 params: { id: getCapsuleTrait(token) }
               }"
             >
-              REDEEM ↗
+              REDEEM NOW ↗
             </router-link>
           </div>
         </div>
