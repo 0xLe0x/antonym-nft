@@ -45,18 +45,20 @@
             </div>
           </div>
           <div class="flex flex-col w-full lg:ml-8 <lg:mt-8">
-            <h2 class="text-xl sm:text-3xl mb-2">
+            <h2 class="text-xl sm:text-3xl mb-4">
               {{ token.name }}
             </h2>
-            <div class="grid grid-cols-2 mb-4">
+            <div class="grid grid-cols-2 sm:mx-4 mb-8">
               <div
                 v-for="(item, index) in token.attributes"
                 :key="`attr_${index}`"
               >
-                <h5 class="text-xl font-medium uppercase">
+                <h5 class="sm:text-lg font-medium uppercase">
                   {{ item.trait_type }}
                 </h5>
-                <span class="text-base font-medium capitalize">{{ item.value }}</span>
+                <span class="text-xs sm:text-sm font-medium capitalize">
+                  {{ item.value }}
+                </span>
               </div>
             </div>
             <router-link
