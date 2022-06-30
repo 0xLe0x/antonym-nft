@@ -10,20 +10,19 @@
         ]"
       >
         <div
-          v-for="(slide, slideIdx) in intro"
-          :key="slideIdx"
+          v-for="slide in intro"
+          :key="slide"
           class="flex flex-col items-center md:flex-row-reverse"
           :class="`w-1/${intro.length}`"
         >
-          <div class="md:w-3/5 font-bold md:text-3xl lg:text-4xl xl:text-5xl p-4 md:p-8">
-            {{ slide.description }}
-          </div>
-          <div class="flex items-center justify-center w-88 h-120 <md:max-w-full <md:max-h-[50vh] md:w-2/5 p-4 md:p-8 max-h-full">
-            <img
-              class="w-full h-full"
-              :src="slide.image"
-              alt="Image"
+          <div class="w-full font-bold <sm:leading-loose text-3xl sm:text-2xl md:text-[34px] lg:text-[42px] xl:text-6xl p-4 md:p-8">
+            <span
+              v-for="p in slide.split('\n')"
+              :key="p"
             >
+              {{ p }}
+              <br class="<sm:hidden">
+            </span>
           </div>
         </div>
       </div>
