@@ -90,7 +90,7 @@ const socialLinks = [
     link: 'https://opensea.io/collection/antonymgenesis'
   },
   {
-    title: 'Lookshare',
+    title: 'Looksrare',
     link: 'https://looksrare.org/collections/0x7e3Ef31186D1BEc0D3f35aD701D065743B84C790'
   }
 ]

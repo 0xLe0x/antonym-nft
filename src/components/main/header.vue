@@ -1,10 +1,10 @@
 <template>
   <header
-    class="header backdrop-filter duration-300"
+    class="header duration-300"
     :class="{
-      'backdrop-blur-lg py-4': y,
-      'bg-white/50': y && !isBlack,
-      'bg-darkgrey/50': y && isBlack,
+      'py-4': y,
+      'bg-white': y && !isBlack,
+      'bg-darkgrey': y && isBlack,
       'theme--dark': isBlack
     }"
   >
