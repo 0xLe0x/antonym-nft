@@ -11,7 +11,7 @@
         v-else
         class="flex flex-column fixed top-0 left-0 right-0 bottom-0 bg-light/30 backdrop-filter backdrop-blur-sm z-30"
       >
-        <div class="max-w-15xl m-auto p-4">
+        <div class="container m-auto p-4">
           <div class="relative bg-white rounded-lg p-4 sm:p-6 lg:p-8 xl:p-12">
             <a
               class="flex text-sm md:text-lg items-center text-black/40 font-bold cursor-pointer"
