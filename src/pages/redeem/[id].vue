@@ -48,12 +48,15 @@
           </p>
 
           <div class="mt-12">
-            <v-tippy>
+            <v-tippy max-width="540">
               <i class="mdi mdi-help-circle-outline" />
 
               <template #content>
                 <div class="bg-black/90 text-white p-4 rounded-md">
-                  <i class="mdi mdi-help-circle-outline" /> Size Prerequisites
+                  <div class="flex items-center">
+                    <i class="mdi mdi-help-circle-outline" />
+                    <span class="text-xs ml-2">Size Prerequisites</span>
+                  </div>
 
                   <p class="text-sm mt-2">
                     The size options available for selection are dependent on eligibility
