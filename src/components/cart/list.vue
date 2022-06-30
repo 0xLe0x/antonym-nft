@@ -2,12 +2,11 @@
   <div>
     <div
       v-if="cart.items.length"
-      class="mb-8 sm:mb-12 lg:mb-16 2xl:mb-24"
     >
       <cart-item
         v-for="item in cart.items"
         :key="item.trait_type"
-        class="mb-4 sm:mb-6 lg:mb-8 2xl:mb-12"
+        class="mb-4 sm:mb-6 lg:mb-8 2xl:mb-10"
         :item="item"
         @remove="cart.removeItem(item)"
       />

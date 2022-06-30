@@ -36,11 +36,11 @@ export default defineConfig({
   ],
   shortcuts: {
     // Common
-    'header': 'fixed top-0 left-0 w-full flex items-center px-4 py-6 lg:px-8 lg:py-10 2xl:px-12 2xl:py-12 z-50',
+    'header': 'fixed top-0 left-0 w-full flex items-center px-4 py-4 lg:px-8 2xl:px-12 z-50',
     'footer': 'relative z-20 mt-4 lg:mt-8 2xl:mt-10',
-    'page': 'min-h-screen pt-12 lg:pt-16 2xl:pt-32 px-4 pb-6 lg:px-8 lg:pb-8 2xl:px-12 2xl:pb-10',
+    'page': 'min-h-screen pt-12 lg:pt-16 2xl:pt-24 px-4 pb-6 lg:px-8 lg:pb-8 2xl:px-12 2xl:pb-10',
     'page-title': 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-8 sm:mb-12 lg:mb-16 2xl:mb-20',
-    'button-connect': 'bg-dark text-white text-xs sm:text-sm md:text-md lg:text-lg 2xl:text-2xl uppercase px-8 py-2 md:px-10 md:py-3 2xl:px-12 2xl:py-4 rounded-full',
+    'button-connect': 'bg-dark text-white text-xs sm:text-sm lg:text-base 2xl:text-lg uppercase px-4 py-1 md:px-6 md:py-2 2xl:px-8 2xl:py-3 rounded-full',
     'button-connect--small': 'border border-darkgrey px-3 py-2 text-xs rounded-full uppercase',
     'order-count': 'flex items-center justify-center w-8 h-8 bg-darkgrey text-white font-bold text-md rounded-full',
     'checkbox': 'h-4 w-4 appearance-none rounded-full border border-black/50 ring-inset ring-white checked:bg-black/70 checked:ring-2',

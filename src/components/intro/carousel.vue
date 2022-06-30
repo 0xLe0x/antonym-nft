@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex flex-col items-stretch flex-grow w-full mx-auto pt-16">
+  <div class="max-w-15xl flex flex-col items-stretch flex-grow w-full mx-auto pt-16">
     <div class="overflow-hidden my-auto">
       <div
         class="flex items-stretch transform duration-300 max-h-full"

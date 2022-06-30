@@ -32,7 +32,7 @@
           <span class="text-sm">
             Capsule: {{ capsule.capsule_trait }}
           </span><br>
-          1 / {{ itemsLimit }} Selected
+          {{ selectedItems.length }} / {{ itemsLimit }} Selected
         </p>
         <div class="flex flex-wrap mt-4 -mx-2">
           <div
