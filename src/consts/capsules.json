@@ -3,7 +3,6 @@
 		"capsule_trait": "abstract",
     "capsule_number": "001",
 		"image": "/images/catalogue/abstract.png",
-		"thumbnail": "/images/catalogue/abstract-small.jpg",
 		"name": "Send Me Flowers",
 		"type": "rubberized mate"
 	},
@@ -11,7 +10,6 @@
 		"capsule_trait": "analog",
     "capsule_number": "002",
 		"image": "/images/catalogue/analog.png",
-		"thumbnail": "/images/catalogue/analog-small.jpg",
 		"name": "Ctrlfreak",
 		"type": "rubberized mate"
 	},
@@ -19,7 +17,6 @@
 		"capsule_trait": "arcade",
     "capsule_number": "003",
 		"image": "/images/catalogue/arcade.png",
-		"thumbnail": "/images/catalogue/arcade-small.jpg",
 		"name": "Akihabara",
 		"type": "high-gloss"
 	},
@@ -27,7 +24,6 @@
 		"capsule_trait": "azul",
     "capsule_number": "004",
 		"image": "/images/catalogue/azul.png",
-		"thumbnail": "/images/catalogue/azul-small.jpg",
 		"name": "Azul",
 		"type": "high-gloss"
 	},
@@ -35,7 +31,6 @@
 		"capsule_trait": "bc",
     "capsule_number": "005",
 		"image": "/images/catalogue/bc.png",
-		"thumbnail": "/images/catalogue/bc-small.jpg",
 		"name": "Eat Prey",
 		"type": "rubberized mate"
 	},
@@ -43,7 +38,6 @@
 		"capsule_trait": "carousel",
     "capsule_number": "006",
 		"image": "/images/catalogue/carousel.png",
-		"thumbnail": "/images/catalogue/carousel-small.jpg",
 		"name": "Bad Day",
 		"type": "rubberized mate"
 	},
@@ -51,7 +45,6 @@
 		"capsule_trait": "cr3ature",
     "capsule_number": "007",
 		"image": "/images/catalogue/cr3ature.png",
-		"thumbnail": "/images/catalogue/cr3ature-small.jpg",
 		"name": "Leer",
 		"type": "rubberized mate"
 	},
@@ -59,7 +52,6 @@
 		"capsule_trait": "dante",
     "capsule_number": "008",
 		"image": "/images/catalogue/dante.png",
-		"thumbnail": "/images/catalogue/dante-small.jpg",
 		"name": "I Was Wrong",
 		"type": "rubberized mate"
 	},
@@ -67,7 +59,6 @@
 		"capsule_trait": "deco",
     "capsule_number": "009",
 		"image": "/images/catalogue/deco.png",
-		"thumbnail": "/images/catalogue/deco-small.jpg",
 		"name": "La Verre De Vin",
 		"type": "high-gloss"
 	},
@@ -75,7 +66,6 @@
 		"capsule_trait": "dos",
     "capsule_number": "010",
 		"image": "/images/catalogue/dos.png",
-		"thumbnail": "/images/catalogue/dos-small.jpg",
 		"name": "Dos",
 		"type": "high-gloss"
 	},
@@ -83,7 +73,6 @@
 		"capsule_trait": "elements",
     "capsule_number": "011",
 		"image": "/images/catalogue/elements.png",
-		"thumbnail": "/images/catalogue/elements-small.jpg",
 		"name": "Wisp",
 		"type": "rubberized mate"
 	},
@@ -91,7 +80,6 @@
 		"capsule_trait": "emo",
     "capsule_number": "012",
 		"image": "/images/catalogue/emo.png",
-		"thumbnail": "/images/catalogue/emo-small.jpg",
 		"name": "Lolita",
 		"type": "rubberized mate"
 	},
@@ -99,7 +87,6 @@
 		"capsule_trait": "feudal",
     "capsule_number": "013",
 		"image": "/images/catalogue/feudal.png",
-		"thumbnail": "/images/catalogue/feudal-small.jpg",
 		"name": "Cavalier",
 		"type": "rubberized mate"
 	},
@@ -107,7 +94,6 @@
 		"capsule_trait": "fright",
     "capsule_number": "014",
 		"image": "/images/catalogue/fright.png",
-		"thumbnail": "/images/catalogue/fright-small.jpg",
 		"name": "Incantations",
 		"type": "rubberized mate"
 	},
@@ -115,7 +101,6 @@
 		"capsule_trait": "g3ometric",
     "capsule_number": "015",
 		"image": "/images/catalogue/g3ometric.png",
-		"thumbnail": "/images/catalogue/g3ometric-small.jpg",
 		"name": "Inception",
 		"type": "high-gloss"
 	},
@@ -123,7 +108,6 @@
 		"capsule_trait": "galaxy",
     "capsule_number": "016",
 		"image": "/images/catalogue/galaxy.png",
-		"thumbnail": "/images/catalogue/galaxy-small.jpg",
 		"name": "Galaxy",
 		"type": "high-gloss"
 	},
@@ -131,7 +115,6 @@
 		"capsule_trait": "gallery",
     "capsule_number": "017",
 		"image": "/images/catalogue/gallery.png",
-		"thumbnail": "/images/catalogue/gallery-small.jpg",
 		"name": "Munch",
 		"type": "rubberized mate"
 	},
@@ -139,7 +122,6 @@
 		"capsule_trait": "greenpoint",
     "capsule_number": "018",
 		"image": "/images/catalogue/greenpoint.png",
-		"thumbnail": "/images/catalogue/greenpoint-small.jpg",
 		"name": "You Can Fly",
 		"type": "rubberized mate"
 	},
@@ -147,7 +129,6 @@
 		"capsule_trait": "gross",
     "capsule_number": "019",
 		"image": "/images/catalogue/gross.png",
-		"thumbnail": "/images/catalogue/gross-small.jpg",
 		"name": "Opinion",
 		"type": "rubberized mate"
 	},
@@ -155,7 +136,6 @@
 		"capsule_trait": "moma",
     "capsule_number": "020",
 		"image": "/images/catalogue/moma.png",
-		"thumbnail": "/images/catalogue/moma-small.jpg",
 		"name": "Dole Money",
 		"type": "high-gloss"
 	},
@@ -164,7 +144,6 @@
 		"capsule_trait": "nirvana",
     "capsule_number": "021",
 		"image": "/images/catalogue/nirvana.png",
-		"thumbnail": "/images/catalogue/nirvana-small.jpg",
 		"name": "Psycho",
 		"type": "rubberized mate"
 	},
@@ -172,7 +151,6 @@
 		"capsule_trait": "sand",
     "capsule_number": "022",
 		"image": "/images/catalogue/sand.png",
-		"thumbnail": "/images/catalogue/sand-small.jpg",
 		"name": "Eye Of Horus",
 		"type": "rubberized mate"
 	},
@@ -180,7 +158,6 @@
 		"capsule_trait": "scribbles",
     "capsule_number": "023",
 		"image": "/images/catalogue/scribbles.png",
-		"thumbnail": "/images/catalogue/scribbles-small.jpg",
 		"name": "Rough Notes",
 		"type": "rubberized mate"
 	},
@@ -188,7 +165,6 @@
 		"capsule_trait": "signs",
     "capsule_number": "024",
 		"image": "/images/catalogue/signs.png",
-		"thumbnail": "/images/catalogue/signs-small.jpg",
 		"name": "Revolving Constelations",
 		"type": "high-gloss"
 	},
@@ -196,7 +172,6 @@
 		"capsule_trait": "st3am",
     "capsule_number": "025",
 		"image": "/images/catalogue/st3am.png",
-		"thumbnail": "/images/catalogue/st3am-small.jpg",
 		"name": "Mechanism",
 		"type": "rubberized mate"
 	},
@@ -204,7 +179,6 @@
 		"capsule_trait": "stickers",
     "capsule_number": "026",
 		"image": "/images/catalogue/stickers.png",
-		"thumbnail": "/images/catalogue/stickers-small.jpg",
 		"name": "Happy",
 		"type": "rubberized mate"
 	},
@@ -212,7 +186,6 @@
 		"capsule_trait": "uwu",
     "capsule_number": "027",
 		"image": "/images/catalogue/uwu.png",
-		"thumbnail": "/images/catalogue/uwu-small.jpg",
 		"name": "Rainbow Road",
 		"type": "rubberized mate"
 	},
@@ -220,7 +193,6 @@
 		"capsule_trait": "vhs",
     "capsule_number": "028",
 		"image": "/images/catalogue/vhs.png",
-		"thumbnail": "/images/catalogue/vhs-small.jpg",
 		"name": "Shippit",
 		"type": "rubberized mate"
 	},
@@ -228,7 +200,6 @@
 		"capsule_trait": "woodstock",
     "capsule_number": "029",
 		"image": "/images/catalogue/woodstock.png",
-		"thumbnail": "/images/catalogue/woodstock-small.jpg",
 		"name": "Loves Me Not",
 		"type": "high-gloss"
 	},
@@ -236,7 +207,6 @@
 		"capsule_trait": "harajuku",
     "capsule_number": "030",
 		"image": "/images/catalogue/harajuku.png",
-		"thumbnail": "/images/catalogue/harajuku-small.jpg",
 		"name": "Harajuku",
 		"type": "high-gloss"
 	},
@@ -244,7 +214,6 @@
 		"capsule_trait": "black",
     "capsule_number": "031",
 		"image": "/images/catalogue/black.png",
-		"thumbnail": "/images/catalogue/black-small.png",
 		"name": "Antonym: Black",
 		"type": "high-gloss",
 		"limited": true

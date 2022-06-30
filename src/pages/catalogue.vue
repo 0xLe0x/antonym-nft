@@ -1,8 +1,8 @@
 <template>
-  <main class="catalogue page pt-20 sm:pt-24 md:pt-28 xl:pt-40">
-    <div class="container mx-auto">
-      <div class="font-bold uppercase">
-        Season1
+  <main class="catalogue page pt-16 sm:pt-20 md:pt-24 xl:pt-32">
+    <div class="max-w-15xl mx-auto">
+      <div class="font-bold uppercase pl-2">
+        Season 1
       </div>
       <div class="flex mx-auto mb-4 sm:mb-6 md:mb-12 lg:mb-18 xl:mb-24">
         <h1 class="text--4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl uppercase">

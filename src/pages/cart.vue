@@ -1,5 +1,5 @@
 <template>
-  <main class="page py-24 sm:py-28 md:py-32 xl:py-48">
+  <main class="page py-16 sm:py-20 md:py-24 xl:py-32">
     <router-link
       class="inline-flex items-center opacity-40 mr-auto"
       :to="{ name: 'Catalogue' }"
@@ -11,7 +11,7 @@
       Confirm your redemption
     </h1>
 
-    <div class="container flex flex-col-reverse lg:flex-row mx-auto">
+    <div class="max-w-15xl flex flex-col-reverse lg:flex-row mx-auto">
       <cart-list class="w-full md:mr-8 lg:mr-12 2xl:mr-20" />
       <div class="w-full mb-4 sm:mb-8 lg:mb-0">
         <p class="text-sm sm:text-base md:text-lg 2xl:text-xl">
@@ -28,7 +28,7 @@
 
         <hr class="<lg:hidden my-4">
         <router-link
-          class="<sm:w-full <lg:hidden toggle-button toggle-button--active rounded-none py-8 px-30 uppercase ml-auto"
+          class="block w-1/2 <lg:hidden bg-hex-252525 text-white text-base text-center py-8 uppercase ml-auto"
           :to="{ name: 'Shipping' }"
         >
           Redeem
@@ -38,7 +38,7 @@
 
     <hr class="lg:hidden my-4">
     <router-link
-      class="<sm:w-full lg:hidden toggle-button toggle-button--active rounded-none py-8 px-30 uppercase mx-auto"
+      class="block w-full lg:hidden bg-hex-252525 text-white text-base text-center py-8 uppercase"
       :to="{ name: 'Shipping' }"
     >
       Redeem
