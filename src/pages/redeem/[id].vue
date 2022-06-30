@@ -1,6 +1,6 @@
 <template>
   <main
-    class="page py-24 sm:py-28 md:py-32 xl:py-48"
+    class="page py-16 sm:py-20 md:py-24 xl:py-32"
     :class="{ 'theme--dark': route.params.id === 'black' }"
   >
     <router-link
@@ -11,7 +11,7 @@
       Keep Browsing
     </router-link>
 
-    <div class="container mx-auto">
+    <div class="max-w-15xl mx-auto">
       <div class="flex flex-col md:flex-row md:items-start">
         <img
           class="w-4/5 md:w-80 lg:w-100 xl:w-140 2xl:w-200 <md:mx-auto md:mr-8 <md:mt-6 object-cover flex-grow-0 flex-shrink-0"
@@ -48,7 +48,10 @@
           </p>
 
           <div class="mt-12">
-            <v-tippy max-width="540">
+            <v-tippy
+              placement="top-start"
+              max-width="540"
+            >
               <i class="mdi mdi-help-circle-outline" />
 
               <template #content>
@@ -111,7 +114,7 @@
               Connectors: Gunmetal
             </p>
             <p v-else>
-              PVC / Vinyl (12”, 24”)<br>
+              Vinyl (12”, 24”)<br>
               Resin (60”)<br>
               Gunmetal
             </p>

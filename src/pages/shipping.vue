@@ -1,5 +1,5 @@
 <template>
-  <main class="page py-24 sm:py-28 md:py-32 xl:py-48">
+  <main class="page py-16 sm:py-20 md:py-24 xl:py-32">
     <router-link
       class="inline-flex items-center opacity-40 mr-auto"
       :to="{ name: 'Catalogue' }"
@@ -10,7 +10,7 @@
     <h1 class="page-title">
       Shipping Information
     </h1>
-    <div class="container mx-auto">
+    <div class="max-w-15xl mx-auto">
       <div class="flex flex-col lg:flex-row lg:items-start">
         <div>
           <h3 class="font-bold text-xl uppercase">

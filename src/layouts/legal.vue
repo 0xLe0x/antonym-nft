@@ -1,6 +1,6 @@
 <template>
   <main-header />
-  <main class="page pt-20 sm:pt-24 md:pt-28 xl:pt-40">
+  <main class="page pt-16 sm:pt-20 md:pt-24 xl:pt-32">
     <router-link
       class="inline-flex items-center opacity-40 mr-auto"
       :to="{ name: 'Catalogue' }"
@@ -12,7 +12,7 @@
       {{ $route.meta.title }}
     </h1>
 
-    <div class="container mx-auto">
+    <div class="max-w-15xl mx-auto">
       <div class="flex flex-col sm:flex-row">
         <div class="w-full sm:w-60 lg:w-80 2xl:w-100 sm:mr-12 lg:mr-36 2xl:mr-50 <sm:mb-12 flex-shrink-0">
           <router-link
