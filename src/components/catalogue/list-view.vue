@@ -8,7 +8,7 @@
     >
       <img
         class="w-full mb-3"
-        :src="capsule.thumbnail"
+        :src="capsule.image"
         width="600"
         height="600"
         :alt="capsule.capsule_trait"
