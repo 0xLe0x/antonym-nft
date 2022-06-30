@@ -49,7 +49,7 @@
         </label>
       </div>
 
-      <catalogue-list-view
+      <catalogue-wallet-view
         v-if="options.wallet"
         :eligible-only="options.eligibleOnly"
       />

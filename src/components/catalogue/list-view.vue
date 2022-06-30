@@ -15,7 +15,9 @@
       >
       <div class="flex justify-between text-xs">
         <div class="uppercase">
-          {{ capsule.capsule_trait }}<br>
+          <span class="mb-1">
+            {{ capsule.capsule_trait }}
+          </span><br>
           {{ capsule.capsule_number }}
         </div>
         <div v-if="capsule.eligible">
