@@ -5,6 +5,7 @@
 <style>
 html{
   overflow: hidden auto;
+  scroll-behavior: smooth;
 }
 .html--use-modal {
   overflow-y: hidden;
@@ -14,7 +15,6 @@ body {
   color: #232323;
   font-weight: 500;
   font-family: 'Helvetica Now Display';
-  scroll-behavior: smooth;
 }
 
 .v-enter-active,
