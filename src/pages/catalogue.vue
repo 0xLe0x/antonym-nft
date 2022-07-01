@@ -58,7 +58,13 @@
         :eligible-only="options.eligibleOnly"
       />
 
-      <div class="flex flex-col lg:flex-row justify-between bg-darkgrey mt-12 md:mt-20 md:mx-4">
+      <router-link
+        class="flex flex-col lg:flex-row justify-between bg-darkgrey mt-12 md:mt-20 md:mx-4"
+        :to="{
+          name: 'Redeem',
+          params: { id: 'black' }
+        }"
+      >
         <div class="flex flex-col flex-grow text-white p-8 pb-0 md:px-12 lg:pl-20 lg:pr-0 lg:py-12 xl:py-16">
           <h2 class="whitespace-nowrap text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-4">
             Antonym: Black
@@ -67,15 +73,9 @@
             Holders with 4 or more Antonyms are eligible to redeem a limited-edition 24” Antonym: Black.
             We appreciate your early support.
           </p>
-          <router-link
-            class="font-light md:text-xl xl:text-2xl 2xl:text-3xl underline mt-18 xl:mt-auto"
-            :to="{
-              name: 'Redeem',
-              params: { id: 'black' }
-            }"
-          >
+          <div class="font-light md:text-xl xl:text-2xl 2xl:text-3xl underline mt-18 xl:mt-auto">
             Learn More
-          </router-link>
+          </div>
         </div>
         <img
           class="w-80 md:w-100 lg:w-120 xl:w-160 2xl:w-200 <lg:ml-auto sm:-mt-16 lg:-mt-24 object-contain object-bottom"
@@ -83,7 +83,7 @@
           width="800"
           alt="Antonym Black"
         >
-      </div>
+      </router-link>
 
       <main-footer class="mt-20 md:mt-auto" />
     </div>
