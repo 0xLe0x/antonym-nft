@@ -115,8 +115,7 @@
             </p>
             <p v-else>
               Vinyl (12”, 24”)<br>
-              Resin (60”)<br>
-              Gunmetal
+              Resin (60”)
             </p>
           </div>
         </div>
