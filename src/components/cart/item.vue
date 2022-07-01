@@ -1,7 +1,12 @@
 <template>
-  <div
+  <component
+    :is="blackPromo ? 'router-link' : 'div'"
     class="relative flex bg-lightgrey overflow-hidden pt-1/3 min-h-50"
     :class="blackPromo && 'bg-darkgrey text-white'"
+    :to="blackPromo ? {
+      name: 'Redeem',
+      params: { id: 'black' }
+    } : undefined"
   >
     <img
       v-if="item"
@@ -52,13 +57,7 @@
         You are eligible to redeem a complimentary limited-edition product
       </div>
 
-      <router-link
-        class="<sm:text-xs flex items-center opacity-40 font-bold cursor-pointer"
-        :to="{
-          name: 'Redeem',
-          params: { id: 'black' }
-        }"
-      >
+      <div class="<sm:text-xs flex items-center opacity-40 font-bold cursor-pointer">
         Learn More
         <img
           class="ml-2 <sm:hidden"
@@ -67,9 +66,9 @@
           height="12"
           alt="continue"
         >
-      </router-link>
+      </div>
     </div>
-  </div>
+  </component>
 </template>
 
 <script setup lang="ts">
