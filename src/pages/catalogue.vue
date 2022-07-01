@@ -67,9 +67,15 @@
             Holders with 4 or more Antonyms are eligible to redeem a limited-edition 24” Antonym: Black.
             We appreciate your early support.
           </p>
-          <a class="font-light md:text-xl xl:text-2xl 2xl:text-3xl underline mt-18 xl:mt-auto">
+          <router-link
+            class="font-light md:text-xl xl:text-2xl 2xl:text-3xl underline mt-18 xl:mt-auto"
+            :to="{
+              name: 'Redeem',
+              params: { id: 'black' }
+            }"
+          >
             Learn More
-          </a>
+          </router-link>
         </div>
         <img
           class="w-80 md:w-100 lg:w-120 xl:w-160 2xl:w-200 <lg:ml-auto sm:-mt-16 lg:-mt-24 object-contain object-bottom"

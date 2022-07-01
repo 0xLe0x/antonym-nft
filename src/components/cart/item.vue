@@ -52,9 +52,12 @@
         You are eligible to redeem a complimentary limited-edition product
       </div>
 
-      <a
+      <router-link
         class="<sm:text-xs flex items-center opacity-40 font-bold cursor-pointer"
-        @click="$emit('remove')"
+        :to="{
+          name: 'Redeem',
+          params: { id: 'black' }
+        }"
       >
         Learn More
         <img
@@ -64,7 +67,7 @@
           height="12"
           alt="continue"
         >
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
