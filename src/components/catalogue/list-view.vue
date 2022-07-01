@@ -39,6 +39,7 @@ import { computed } from 'vue'
 import { capsules } from '@/consts'
 import wallet from '@/use/wallet'
 import { Capsule } from '@/types'
+import cart from '@/use/cart'
 
 const props = defineProps<{
   eligibleOnly: boolean
@@ -56,6 +57,11 @@ const capsuleList = computed(() => capsules
     eligible: isEligible(capsule)
   }))
   .filter((capsule) => !capsule?.limited)
-  .filter(({ eligible }) => !props.eligibleOnly || eligible)
+  .filter(({ capsule_trait, eligible }) => {
+    if (!props.eligibleOnly) { return true }
+
+    return eligible && !cart.items
+      .some(({ trait_type }) => trait_type === capsule_trait)
+  })
 )
 </script>

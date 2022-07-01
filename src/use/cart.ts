@@ -1,4 +1,4 @@
-import { reactive, ref, watch } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { Token } from './wallet'
 
 export type CartItem = {
@@ -9,24 +9,22 @@ export type CartItem = {
 }
 
 const items = ref([] as CartItem[])
-const selectedTokens = ref([] as any[])
+const selectedTokens = computed(
+  () => items.value.reduce(
+    (acc, item) => [...acc, ...item.selectedTokens],
+    [] as Token[]
+  )
+)
 
 const removeItem = (item: CartItem) => {
   if (item.trait_type !== 'black') {
     items.value = items.value.filter((ele) => ele !== item)
-
-    selectedTokens.value = selectedTokens.value.filter(
-      (token: any) => item.selectedTokens.some(
-        (removed: any) => removed.tokenID !== token.tokenID
-      )
-    )
   } else {
     items.value = items.value.filter((ele) => ele !== item)
   }
 }
 
 const clear = () => {
-  selectedTokens.value = []
   items.value = []
 }
 
@@ -45,19 +43,19 @@ const loadLastCart = () => {
   if (typeof localStorage === 'undefined') { return }
 
   const cartInfoStr = localStorage.getItem('cart')
-
   if (!cartInfoStr) { return }
 
-  const cartInfo = JSON.parse(cartInfoStr)
+  let cartInfo = [] as CartItem[]
+  try {
+    cartInfo = JSON.parse(cartInfoStr)
+  } catch (err) {
+    // Error handler if failed loading cart information
+  }
 
-  items.value = cartInfo.items
-  selectedTokens.value = cartInfo.selectedTokens
+  items.value = (Array.isArray(cartInfo) && cartInfo) || []
 }
 const saveCart = () => {
-  localStorage.setItem('cart', JSON.stringify({
-    items: items.value,
-    selectedTokens: selectedTokens.value
-  }))
+  localStorage.setItem('cart', JSON.stringify(items))
 }
 
 watch([items, selectedTokens], saveCart, { deep: true })
