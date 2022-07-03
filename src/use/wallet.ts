@@ -1,3 +1,4 @@
+import { isRedeemable } from '@/utils/capsule'
 import { computed, reactive, ref } from 'vue'
 import account from './account'
 
@@ -18,6 +19,10 @@ const loadingIdx = ref(0)
 const balance = ref(null as number | null)
 const blackRedeemed = ref(false)
 const balanceChecked = computed(() => balance.value !== null)
+
+const redeemableTokens = computed(
+  () => tokens.value.filter(isRedeemable)
+)
 
 const tokenMap = computed(() => tokens.value
   .reduce(
@@ -90,8 +95,17 @@ const resolveNFT = async (token: { id: number, uri: string }) => {
   }
 }
 
+const getWalletTokenInfo = (name: string) => {
+  const [tokenName, tokenNumber] = name.split(' #')
+  return {
+    tokenName,
+    tokenNumber
+  }
+}
+
 export default reactive({
   tokens,
+  redeemableTokens,
   capsuleTypes,
   balance,
   balanceChecked,
@@ -100,5 +114,6 @@ export default reactive({
   clear,
   clearTokens,
   getAccountDetails,
+  getWalletTokenInfo,
   resolveNFT
 })

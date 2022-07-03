@@ -81,10 +81,12 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { Capsule } from '@/types'
-import { ItemsPerSizeMap } from '@/consts'
-import wallet, { Token } from '@/use/wallet'
+
 import cart from '@/use/cart'
+import wallet, { Token } from '@/use/wallet'
+import { getCapsuleTrait, isRedeemable } from '@/utils/capsule'
+import { ItemsPerSizeMap } from '@/consts'
+import { Capsule } from '@/types'
 
 const emit = defineEmits<{
   (event: 'redeem', value: Token[]): void
@@ -111,24 +113,17 @@ const canRedeem = computed(() => {
   return true
 })
 
-const alreadyInCart = (tokenID: string) => {
-  return cart.selectedTokens.some((token) => token.tokenID === tokenID)
-}
-
 const matchTrait = (token: Token, trait: string) => token.attributes.some(
   (attr) => attr.trait_type === 'Capsule' && attr.value === trait
 )
-
-const getCapsuleTrait = (token: Token) => {
-  return token.attributes.find((attr) => attr.trait_type === 'Capsule')?.value || ''
-}
 
 const userRedeemableTokens = computed(() => {
   const result = []
   const matchingTokens = []
 
   for (const token of wallet.tokens) {
-    if (token.redeemed || alreadyInCart(token.tokenID)) { continue }
+    if (!isRedeemable(token)) { continue }
+
     if (matchTrait(token, props.capsule.capsule_trait)) {
       matchingTokens.push(token)
     } else {
@@ -154,7 +149,7 @@ const isSelected = (token: Token) => {
 
 const prepareModal = () => {
   for (const token of wallet.tokens) {
-    if (token.redeemed || alreadyInCart(token.tokenID)) continue
+    if (!isRedeemable(token)) continue
 
     if (matchTrait(token, props.capsule.capsule_trait)) {
       selectedItems.value = [token]

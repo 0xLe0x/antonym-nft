@@ -40,15 +40,23 @@ import { capsules } from '@/consts'
 import wallet from '@/use/wallet'
 import { Capsule } from '@/types'
 import cart from '@/use/cart'
+import { getCapsuleTrait, isRedeemable } from '@/utils/capsule'
 
 const props = defineProps<{
   eligibleOnly: boolean
 }>()
 
 const isEligible = (capsule: Capsule) => {
-  return wallet.capsuleTypes[capsule.capsule_trait] ||
-    wallet.tokens.some(token => token.attributes.some(
-      attr => attr.value === '1/1' && !token.redeemed))
+  if (!wallet.capsuleTypes[capsule.capsule_trait]) { return false }
+
+  for (const token of wallet.redeemableTokens) {
+    if (
+      isRedeemable(token) &&
+      getCapsuleTrait(token) === capsule.capsule_trait
+    ) { return true }
+  }
+
+  return false
 }
 
 const capsuleList = computed(() => capsules

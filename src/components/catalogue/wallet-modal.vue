@@ -37,9 +37,9 @@
             <div class="flex justify-between text-xs">
               <div class="uppercase">
                 <span class="mb-1">
-                  {{ getTokenInfo(token.name).tokenName }}
+                  {{ wallet.getWalletTokenInfo(token.name).tokenName }}
                 </span><br>
-                {{ getTokenInfo(token.name).tokenNumber }}
+                {{ wallet.getWalletTokenInfo(token.name).tokenNumber }}
               </div>
               <div
                 v-if="token.redeemed"
@@ -93,7 +93,8 @@
 </template>
 
 <script setup lang="ts">
-import { Token } from '@/use/wallet'
+import wallet, { Token } from '@/use/wallet'
+import { getCapsuleTrait } from '@/utils/capsule'
 
 defineEmits<{
   (event: 'redeem', value: Token[]): void
@@ -103,15 +104,4 @@ defineProps<{
   token: Token
   modelValue: boolean
 }>()
-
-const getTokenInfo = (name: string) => {
-  const [tokenName, tokenNumber] = name.split(' #')
-  return {
-    tokenName,
-    tokenNumber
-  }
-}
-const getCapsuleTrait = (token: Token) => {
-  return token.attributes.find((attr) => attr.trait_type === 'Capsule')?.value || ''
-}
 </script>
