@@ -16,9 +16,9 @@
       <div class="flex justify-between text-xs">
         <div class="uppercase">
           <span class="mb-1">
-            {{ getTokenInfo(token.name).tokenName }}
+            {{ wallet.getWalletTokenInfo(token.name).tokenName }}
           </span><br>
-          {{ getTokenInfo(token.name).tokenNumber }}
+          {{ wallet.getWalletTokenInfo(token.name).tokenNumber }}
         </div>
         <div
           v-if="token.redeemed"

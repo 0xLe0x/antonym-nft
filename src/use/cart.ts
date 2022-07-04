@@ -34,8 +34,7 @@ const addBlackEdition = (item: CartItem) => {
 
 const addItem = (item: CartItem) => {
   if (!selectedTokens.value.some((selected) => item.selectedTokens.includes(selected))) {
-    items.value.push(item)
-    selectedTokens.value.push(...item.selectedTokens)
+    items.value.push({ ...item })
   }
 }
 
@@ -55,7 +54,7 @@ const loadLastCart = () => {
   items.value = (Array.isArray(cartInfo) && cartInfo) || []
 }
 const saveCart = () => {
-  localStorage.setItem('cart', JSON.stringify(items))
+  localStorage.setItem('cart', JSON.stringify(items.value))
 }
 
 watch([items, selectedTokens], saveCart, { deep: true })
