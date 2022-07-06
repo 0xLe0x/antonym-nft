@@ -30,6 +30,7 @@ export const handler = async (event) => {
 			address,
 			items,
 		} = body
+
 		let normalizedAddress = utils.getAddress(ethAddress)
 
 		let ShippingPrice = 0
@@ -52,7 +53,6 @@ export const handler = async (event) => {
 
 			let ItemWeight = sizeToWeight[item.size]
 			ShippingPrice += Number(await getShippingPrice(ItemWeight, address.country))
-			console.debug(ShippingPrice)
 			shipitems.push({
 				price: 0,
 				quantity: 1,
@@ -82,27 +82,25 @@ export const handler = async (event) => {
 			data: {
 				draft_order: {
 					note: `DISCORDID:${discordId}`,
-					customer: {
-						note: `DISCORDID:${discordId}`,
-						first_name: name + ' ' + normalizedAddress,
-						email,
-					},
-					email,
 					line_items: shipitems,
+					customer: {
+						email: email,
+						first_name: name,
+						note: discordId,
+					},
 					shipping_line: {
 						custom: true,
 						title: `STANDARD - ${ShippingPrice} - ${address.country} `,
 						price: ShippingPrice,
 						code: 'Standard',
 					},
-
 					shipping_address: {
-						name,
+						first_name: name,
 						address1: address.address1,
 						address2: address.address2,
 						province: address.province,
 						zip: address.zip,
-						phone: address.phone,
+						// phone: address.phone,
 						city: address.city,
 						country: address.country,
 					},
