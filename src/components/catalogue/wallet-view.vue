@@ -26,6 +26,12 @@
         >
           REDEEMED
         </div>
+        <div
+          v-else-if="alreadyInCart(token.tokenID)"
+          class="text-black/30"
+        >
+          PENDING REDEMPTION
+        </div>
         <div v-else>
           REDEEM ↗
         </div>

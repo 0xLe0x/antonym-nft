@@ -47,6 +47,12 @@
               >
                 REDEEMED
               </div>
+              <div
+                v-else-if="alreadyInCart(token.tokenID)"
+                class="text-black/30"
+              >
+                PENDING REDEMPTION
+              </div>
               <router-link
                 v-else
                 :to="{
@@ -76,7 +82,7 @@
               </div>
             </div>
             <router-link
-              v-if="token.redeemed != true"
+              v-if="token.redeemed != true && !alreadyInCart(token.tokenID)"
               class="text-2xl font-medium ml-auto mt-auto"
               :to="{
                 name: 'Redeem',
@@ -94,7 +100,7 @@
 
 <script setup lang="ts">
 import wallet, { Token } from '@/use/wallet'
-import { getCapsuleTrait } from '@/utils/capsule'
+import { alreadyInCart, getCapsuleTrait } from '@/utils/capsule'
 
 defineEmits<{
   (event: 'redeem', value: Token[]): void
