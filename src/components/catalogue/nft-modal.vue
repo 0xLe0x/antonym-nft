@@ -57,8 +57,8 @@
               v-if="isSelected(token)"
               class="absolute -top-1 -right-1 flex flex-center border-2 border-black w-8 h-8 rounded-full"
               :class="{
-                'bg-white': getCapsuleTrait(token) === capsule.capsule_trait,
-                'bg-black text-white': getCapsuleTrait(token) !== capsule.capsule_trait
+                'bg-white': isPrimary(token),
+                'bg-black text-white': !isPrimary(token)
               }"
             >
               <i class="text-2xl mdi mdi-check" />
@@ -82,7 +82,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 
-import cart from '@/use/cart'
 import wallet, { Token } from '@/use/wallet'
 import { getCapsuleTrait, isRedeemable } from '@/utils/capsule'
 import { ItemsPerSizeMap } from '@/consts'
@@ -101,6 +100,9 @@ const props = defineProps<{
 const itemsLimit = computed(() => ItemsPerSizeMap[props.size])
 const selectedItems = ref([] as Token[])
 
+const isPrimary = (token: Token) => token === selectedItems.value
+  .filter((token) => getCapsuleTrait(token) === props.capsule.capsule_trait)[0]
+
 const hasOneTrait = computed(() => selectedItems.value.map(
   ({ attributes }) => attributes
     .filter(({ trait_type }) => trait_type === 'Capsule' || trait_type === 'Skin Name')
@@ -110,7 +112,12 @@ const hasOneTrait = computed(() => selectedItems.value.map(
 const canRedeem = computed(() => {
   if (!hasOneTrait.value) { return false }
   if (selectedItems.value.length < itemsLimit.value) { return false }
-  return true
+  for (const item of selectedItems.value) {
+    if (getCapsuleTrait(item) === props.capsule.capsule_trait) {
+      return true
+    }
+  }
+  return false
 })
 
 const matchTrait = (token: Token, trait: string) => token.attributes.some(

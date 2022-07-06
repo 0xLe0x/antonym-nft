@@ -62,6 +62,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import wallet, { Token } from '@/use/wallet'
+import { alreadyInCart } from '@/utils/capsule'
 
 const props = defineProps<{
   eligibleOnly: boolean
@@ -76,21 +77,14 @@ const userTokens = computed(() => {
   const tokens = wallet.tokens || []
 
   return props.eligibleOnly
-    ? tokens.filter(({ redeemed }) => redeemed !== true)
+    ? tokens.filter(({ redeemed, tokenID }) =>
+      redeemed !== true && !alreadyInCart(tokenID))
     : tokens
 })
 
 const puppetCount = computed(
   () => wallet.balance ? wallet.balance - userTokens.value.length : 0
 )
-
-const getTokenInfo = (name: string) => {
-  const [tokenName, tokenNumber] = name.split(' #')
-  return {
-    tokenName,
-    tokenNumber
-  }
-}
 
 const openWalletToken = (token: Token) => {
   tokenModal.token = token
