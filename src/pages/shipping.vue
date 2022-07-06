@@ -98,7 +98,10 @@ import { zones } from '@/consts'
 import cart from '@/use/cart'
 import order from '@/use/order'
 import account from '@/use/account'
+import wallet from '@/use/wallet'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const toast = Toast.useToast && Toast.useToast()
 
 const countries = zones.map((zone, idx) => ({
@@ -173,7 +176,6 @@ const getEthPrice = async () => {
 }
 
 const completeOrder = async () => {
-  const signer = await account.provider?.getSigner()
   const orderDetails = order.order
   const ethPrice = await getEthPrice()
   const txdata = {
@@ -191,6 +193,20 @@ const completeOrder = async () => {
       redeemItems: cart.items
     })
   })
+
+  if (orderCompletion) {
+    cart.clear()
+    order.completeOrder()
+    wallet.clearTokens()
+    toast.success('Your toy has been redeemed!', {
+      position: Toast.POSITION.TOP_RIGHT,
+      timeout: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      icon: true
+    })
+    setTimeout(() => router.push({ name: 'Thanks' }), 1000)
+  }
 }
 
 const confirm = async () => {
