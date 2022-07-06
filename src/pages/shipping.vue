@@ -149,7 +149,7 @@ const createOrder = async () => {
       ethAddress: account.activeAccount,
       signature,
       message,
-      name: `${form.firstName} ${form.lastName}`,
+      name: [form.firstName, form.lastName].join(' '),
       email: form.email,
       discordId: form.discord,
       address: {
