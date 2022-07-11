@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     LegalContents: typeof import('./src/components/legal/contents.vue')['default']
     LegalItem: typeof import('./src/components/legal/item.vue')['default']
     MainConnect: typeof import('./src/components/main/connect.vue')['default']
+    MainConnectModal: typeof import('./src/components/main/connect-modal.vue')['default']
     MainFooter: typeof import('./src/components/main/footer.vue')['default']
     MainHeader: typeof import('./src/components/main/header.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

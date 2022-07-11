@@ -14,6 +14,7 @@ const contract = ref(null as ethers.Contract | null)
 const network = ref(null as ethers.providers.Network | null)
 const provider = ref(null as ethers.providers.Web3Provider | null)
 const listenersCreated = ref(false)
+const web3Modal: any = ref(null)
 
 const hexChainId = computed(() => '0x' + network.value?.chainId.toString(16))
 const networkName = computed(() => network.value?.name)
@@ -26,6 +27,10 @@ const accountCompact = computed(() => activeAccount.value
     }`
   : 'Connect'
 )
+
+export const setWeb3Modal = (_web3Modal: any) => {
+  web3Modal.value = _web3Modal
+}
 
 const createTransaction = async (
   { address, amount }: { address: string, amount: string }
@@ -79,18 +84,20 @@ const getContract = async () => {
 }
 
 const connect = async () => {
-  await detectEthereumProvider()
+  try {
+    await web3Modal.value?.connect()
 
-  network.value = await provider.value?.getNetwork() || null
+    network.value = await provider.value?.getNetwork() || null
 
-  const [account] = await provider.value?.send('eth_requestAccounts', [])
-  if (account) {
-    await setAccount(account)
-    await wallet.getAccountDetails()
-    await getAccountNFT()
-  } else {
-    // Account not returned
-  }
+    const [account] = await provider.value?.send('eth_requestAccounts', [])
+    if (account) {
+      await setAccount(account)
+      await wallet.getAccountDetails()
+      await getAccountNFT()
+    } else {
+      // Account not returned
+    }
+  } catch (err) {}
 }
 
 const disconnect = () => {
@@ -164,34 +171,35 @@ const setAccount = async (newAccount: string) => {
 
 const init = async () => {
   // Avoid this on server side
-  if (typeof window.ethereum === 'undefined') { return }
+  // if (typeof window.ethereum === 'undefined') { return }
+  try {
+    const eth: any = await web3Modal.value?.connect()
 
-  const eth: any = await detectEthereumProvider()
+    if (!listenersCreated.value) {
+      eth.on('accountsChanged', ([newAddress]: string[]) => {
+        cart.clear()
+        wallet.clear()
 
-  if (!listenersCreated.value) {
-    eth.on('accountsChanged', ([newAddress]: string[]) => {
-      cart.clear()
-      wallet.clear()
+        setAccount(newAddress)
+      })
 
-      setAccount(newAddress)
-    })
+      eth.on('chainChanged', (chainId: string) => {
+        cart.clear()
+        wallet.clear()
+        window.location.reload()
+      })
 
-    eth.on('chainChanged', (chainId: string) => {
-      cart.clear()
-      wallet.clear()
-      window.location.reload()
-    })
+      listenersCreated.value = true
+    }
 
-    listenersCreated.value = true
-  }
+    provider.value = markRaw(new ethers.providers.Web3Provider(eth))
+    network.value = await provider.value.getNetwork()
+    const [account] = await provider.value.listAccounts()
 
-  provider.value = markRaw(new ethers.providers.Web3Provider(eth))
-  network.value = await provider.value.getNetwork()
-  const [account] = await provider.value.listAccounts()
-
-  if (account) {
-    await setAccount(account)
-  }
+    if (account) {
+      await setAccount(account)
+    }
+  } catch (err) {}
 }
 
 export default reactive({
@@ -231,5 +239,3 @@ export const useAccount = () => {
     toggleWallet
   }
 }
-
-init()

@@ -14,6 +14,7 @@
     >
       Antonym
     </router-link>
+    <main-connect-modal />
     <main-connect />
   </header>
 </template>
